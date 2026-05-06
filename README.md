@@ -1,38 +1,42 @@
-# assembly-rag
+# procedure-graphrag
 
-> Latency-optimized GraphRAG pipeline for shop-floor assembly assistance.
+> Latency-optimized GraphRAG pipeline with a multi-backend LLM benchmark suite.
 
-A reference implementation that pairs a Neo4j knowledge graph of assembly procedures with a tunable LLM inference layer (Ollama, llama.cpp, HuggingFace Transformers) and a benchmark harness for measuring end-to-end query latency. Built to explore how far GraphRAG response times can be pushed for real-time, hands-free use on the manufacturing floor.
+A reference implementation for **hybrid graph + vector retrieval over procedural knowledge**, paired with a benchmark harness that measures end-to-end query latency across model sizes, quantization levels, inference backends, and prompt strategies. Built to explore how far GraphRAG response times can be pushed for low-latency, real-time use cases — voice assistants, on-device copilots, embedded support tools.
 
 ## Why this exists
 
-GraphRAG produces strong answers on multi-hop, structured-knowledge questions — exactly the kind of queries an assembly worker asks ("for procedure WS-014 step 7, what torque applies if the rivet is 5/32 inch Hi-Lok and the substrate is CFRP?"). But the round-trip latency of naive GraphRAG pipelines (vector search + Cypher traversal + 7B-class LLM at fp16) is often too slow for hands-free voice interaction.
+GraphRAG produces high-quality answers on multi-hop, structured-knowledge questions by combining a knowledge graph (relational reasoning) with a vector store (semantic recall). It outperforms vector-only RAG on questions like *"which procedures require Level 2 certification and use a torque value above 40 Nm?"* — the kind of relational query that breaks naive cosine similarity.
 
-This project quantifies the latency cost of each pipeline stage and explores the Pareto frontier of latency vs. answer quality across:
+The cost: latency. A naive GraphRAG round-trip — embedding lookup, Cypher traversal, context formatting, 7B-class LLM at fp16 — can easily exceed 4–5 seconds. Too slow for voice interfaces, too slow for hands-free interaction, too slow for fluid conversation.
+
+This project quantifies the latency cost of each pipeline stage and maps the Pareto frontier of latency vs. answer quality across:
 
 - **Model size:** 0.5B → 8B parameters
 - **Quantization:** fp16 → int8 → int4 (Q4_K_M)
 - **Inference backend:** Ollama, llama.cpp (CUDA), HuggingFace Transformers (bitsandbytes)
 - **Prompt strategy:** monolithic vs. chained (decompose → retrieve → answer)
 
+## Reference domain
+
+The benchmark uses a synthetic **industrial equipment maintenance** knowledge graph (~30 procedures covering pumps, valves, motors, and heat exchangers; ~200 steps; ~60 components; ~40 torque specs; ~10 certifications; ~15 defects). The schema is intentionally generic — the same structure transfers to assembly procedures, lab protocols, surgical workflows, IT runbooks, or any domain where structured procedures are queried multi-hop.
+
+The dataset is fully reproducible from a seed JSON committed to this repo.
+
 ## Architecture
-            Streamlit UI (text + optional voice)
-                      |
-            Optimization Router
-            (model / backend / quant)
-              /        |        \
-          Ollama   llama.cpp   HF Transformers
-                      |
-          GraphRAG Retriever (graph + vector hybrid)
-              /                         \
-          Neo4j 5                    Chroma
-          (Cypher templates)        (sentence-transformers)
-                      |
-          Profiler -> benchmark dashboard
-
-## Domain
-
-A synthetic aircraft wing-skin assembly knowledge graph (~30 procedures, ~200 steps, ~100 tools, ~80 part numbers, torque specs, cross-references). The dataset is fully reproducible from a seed JSON committed to this repo.
+        Streamlit UI (text + optional voice)
+                  |
+        Optimization Router
+        (model / backend / quant)
+          /        |        \\
+      Ollama   llama.cpp   HF Transformers
+                  |
+      GraphRAG Retriever (graph + vector hybrid)
+          /                         \\
+      Neo4j 5                    Chroma
+      (Cypher templates)        (sentence-transformers)
+                  |
+      Profiler -> benchmark dashboard
 
 ## Benchmark methodology
 
@@ -44,18 +48,18 @@ A synthetic aircraft wing-skin assembly knowledge graph (~30 procedures, ~200 st
 - LLM time-to-first-token
 - LLM decode
 
-Final results are reported as the latency Pareto frontier vs. answer F1 (string match) and LLM-as-judge quality scores.
+Results are reported as the latency Pareto frontier vs. answer F1 (string match) and LLM-as-judge quality scores. Reproducibility: all numbers are reported against a single reference setup (RTX 2060, CUDA 12.1, WSL2 Ubuntu 24.04, Python 3.11).
 
 ## Project status
 
-This is an active build (Phase 1 of 6 complete). Tracking progress:
+This is an active build. Tracking progress:
 
-- [x] **Phase 1 — Foundation:** WSL2 environment, Neo4j 5.26 + APOC via Docker, Ollama smoke tests, embeddings smoke tests
-- [ ] **Phase 2 — Synthetic domain:** wing-skin knowledge graph generation, 50 ground-truth Q/A pairs
-- [ ] **Phase 3 — GraphRAG v0 baseline:** vector-only retrieval + llama3.1:8b fp16 monolithic prompt
+- [x] **Phase 1 — Foundation:** WSL2 environment, Neo4j 5.26 + APOC via Docker, Ollama integration, embeddings smoke tests
+- [ ] **Phase 2 — Synthetic domain:** maintenance procedure knowledge graph generation, 50 ground-truth Q/A pairs
+- [ ] **Phase 3 — GraphRAG v0 baseline:** vector + graph retrieval + llama3.1:8b fp16 monolithic prompt — the bar to beat
 - [ ] **Phase 4 — Optimization sweep:** model x quant x backend x chain grid (~50 configurations)
 - [ ] **Phase 5 — Final pipeline + tests:** Pareto-optimal config wired into Streamlit, pytest latency regression
-- [ ] **Phase 6 — Voice layer (optional):** faster-whisper + Piper for hands-free assistance
+- [ ] **Phase 6 — Voice layer (optional):** faster-whisper + Piper for hands-free use
 
 See [REPORT.md](./REPORT.md) for benchmark results once Phase 4 is complete.
 
@@ -72,16 +76,17 @@ See [REPORT.md](./REPORT.md) for benchmark results once Phase 4 is complete.
 | Voice (optional) | faster-whisper (STT) + Piper (TTS) |
 | Orchestration | Docker Compose |
 
-## Reproducibility
+## Why this generalizes
 
-All hardware-relevant numbers are reported against a single reference setup:
+The same retrieval and inference pipeline applies anywhere structured procedures are queried multi-hop:
 
-- **GPU:** NVIDIA RTX 2060 (6 GB VRAM), CUDA 12.1
-- **CPU:** Intel i7 (Lenovo Legion 5)
-- **OS:** Windows 11 + WSL2 Ubuntu 24.04
-- **Python:** 3.11
+- **Manufacturing** — assembly procedures, quality inspection workflows
+- **Field service** — equipment maintenance, repair procedures
+- **Healthcare** — clinical pathways, surgical protocols
+- **IT operations** — incident response runbooks, deployment procedures
+- **Compliance** — audit checklists, regulatory procedures
 
-Environment is captured in `requirements.txt` (Phase 2). Synthetic data is regenerated from a single seed JSON.
+Schema rename and seed regeneration are the only domain-specific work; the retrieval, optimization, and benchmarking code is domain-agnostic.
 
 ## License
 
