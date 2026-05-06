@@ -40,7 +40,7 @@ The dataset is fully reproducible from a seed JSON committed to this repo.
 
 ## Benchmark methodology
 
-50 ground-truth Q/A pairs spanning single-hop, multi-hop, and arithmetic queries are evaluated end-to-end. The profiler tags time per stage:
+48 ground-truth Q/A pairs spanning single-hop (20), multi-hop (18), and arithmetic (10) queries are evaluated end-to-end. The profiler tags time per stage:
 
 - Embedding lookup (Chroma)
 - Cypher traversal (Neo4j)
@@ -73,7 +73,7 @@ throughout the eval pipeline.
 This is an active build. Tracking progress:
 
 - [x] **Phase 1 — Foundation:** WSL2 environment, Neo4j 5.26 + APOC via Docker, Ollama integration, embeddings smoke tests
-- [x] **Phase 2 — Synthetic domain:** maintenance procedure knowledge graph generation, 50 ground-truth Q/A pairs
+- [x] **Phase 2 — Synthetic domain:** maintenance procedure knowledge graph generation, 48 Cypher-validated ground-truth Q/A pairs
 - [ ] **Phase 3 — GraphRAG v0 baseline:** vector + graph retrieval + llama3.1:8b fp16 monolithic prompt — the bar to beat
 - [ ] **Phase 4 — Optimization sweep:** model x quant x backend x chain grid (~50 configurations)
 - [ ] **Phase 5 — Final pipeline + tests:** Pareto-optimal config wired into Streamlit, pytest latency regression
