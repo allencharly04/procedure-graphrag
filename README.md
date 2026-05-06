@@ -68,13 +68,45 @@ LLM-generated answers were incorrect when compared against database results,
 which motivated the "trust the database, not the LLM" methodology now used
 throughout the eval pipeline.
 
+## Baseline (Phase 3 complete)
+
+The v0 GraphRAG pipeline (vector + graph hybrid retrieval, llama3.1:8b Q4_K_M
+on RTX 2060 via Ollama, monolithic prompt) was evaluated on the 48-question
+gold set:
+
+| Metric | Value |
+|---|---|
+| **Accuracy** | 18.8% (9 of 48) |
+| Mean total latency | 2053 ms |
+| p50 / p95 latency | 1695 / 5526 ms |
+| Mean retrieve stage | 115 ms |
+| Mean prefill stage | 684 ms |
+| Mean decode stage | 1190 ms |
+
+By category: single-hop 25%, multi-hop 17%, arithmetic 10%.
+
+Five failure modes identified from the per-question logs:
+
+1. **ID hallucination** - the model invents plausible-looking IDs when uncertain (e.g. T-123, PRC-456)
+2. **Set incompleteness** - missing items in long ID lists, especially in multi-hop questions
+3. **Arithmetic weakness** - small models struggle with counting and aggregation over context
+4. **Retrieval gaps** - some attribute queries (material, tolerance, hold-point counts) fall outside template coverage
+5. **Format mismatches** - some answers are semantically correct but lose strict scoring (e.g. "shell_and_tube" vs "shell_tube")
+
+Phase 4 targets each mode independently: quantization sweep for latency,
+prompt chaining for arithmetic, schema-aware prompting for hallucination,
+expanded templates for retrieval coverage. Improvements are measured against
+this baseline.
+
+Per-question detail: `benchmarks/results/baseline.json`.
+
 ## Project status
 
 This is an active build. Tracking progress:
 
 - [x] **Phase 1 — Foundation:** WSL2 environment, Neo4j 5.26 + APOC via Docker, Ollama integration, embeddings smoke tests
 - [x] **Phase 2 — Synthetic domain:** maintenance procedure knowledge graph generation, 48 Cypher-validated ground-truth Q/A pairs
-- [ ] **Phase 3 — GraphRAG v0 baseline:** vector + graph retrieval + llama3.1:8b fp16 monolithic prompt — the bar to beat
+- [x] **Phase 3 — GraphRAG v0 baseline:** vector + graph retrieval + llama3.1:8b Q4_K_M monolithic prompt
 - [ ] **Phase 4 — Optimization sweep:** model x quant x backend x chain grid (~50 configurations)
 - [ ] **Phase 5 — Final pipeline + tests:** Pareto-optimal config wired into Streamlit, pytest latency regression
 - [ ] **Phase 6 — Voice layer (optional):** faster-whisper + Piper for hands-free use
