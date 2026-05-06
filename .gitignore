@@ -48,3 +48,8 @@ Thumbs.db
 !data/synthetic/procedures.json
 !data/synthetic/torque_specs.json
 !data/eval_queries.jsonl
+data/chroma/
+
+# Exception: keep benchmark result files (these are deliverables)
+!benchmarks/results/baseline.json
+!benchmarks/results/*.json
