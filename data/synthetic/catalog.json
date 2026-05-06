@@ -1,0 +1,700 @@
+{
+  "tools": [
+    {
+      "id": "T-001",
+      "name": "Calibrated Torque Wrench, 10-50 Nm",
+      "type": "torque_wrench",
+      "calibration_required": true
+    },
+    {
+      "id": "T-002",
+      "name": "Digital Multimeter, Fluke 87V",
+      "type": "diagnostic",
+      "calibration_required": true
+    },
+    {
+      "id": "T-003",
+      "name": "Combination Wrench Set, 8-24mm",
+      "type": "hand_tool",
+      "calibration_required": false
+    },
+    {
+      "id": "T-004",
+      "name": "Pneumatic Impact Wrench, 1/2 inch Drive",
+      "type": "power_tool",
+      "calibration_required": false
+    },
+    {
+      "id": "T-005",
+      "name": "Chain Hoist, 2 Ton Capacity",
+      "type": "lifting",
+      "calibration_required": false
+    },
+    {
+      "id": "T-006",
+      "name": "Dial Indicator, 0-25mm Range",
+      "type": "measurement",
+      "calibration_required": true
+    },
+    {
+      "id": "T-007",
+      "name": "Grease Gun, Hydraulic 500cc",
+      "type": "lubrication",
+      "calibration_required": false
+    },
+    {
+      "id": "T-008",
+      "name": "Safety Helmet, Class E",
+      "type": "ppe",
+      "calibration_required": false
+    },
+    {
+      "id": "T-009",
+      "name": "Lockout Hasp, 6-Padlock Capacity",
+      "type": "lockout",
+      "calibration_required": false
+    },
+    {
+      "id": "T-010",
+      "name": "Calibrated Torque Wrench, 60-340 Nm",
+      "type": "torque_wrench",
+      "calibration_required": true
+    },
+    {
+      "id": "T-011",
+      "name": "Insulation Resistance Tester, Megger MIT320",
+      "type": "diagnostic",
+      "calibration_required": true
+    },
+    {
+      "id": "T-012",
+      "name": "Socket Set, 3/8 inch Drive, 10-19mm",
+      "type": "hand_tool",
+      "calibration_required": false
+    },
+    {
+      "id": "T-013",
+      "name": "Angle Grinder, 125mm, 1400W",
+      "type": "power_tool",
+      "calibration_required": false
+    },
+    {
+      "id": "T-014",
+      "name": "Lever Hoist, 1.5 Ton Capacity",
+      "type": "lifting",
+      "calibration_required": false
+    },
+    {
+      "id": "T-015",
+      "name": "Micrometer Set, 0-100mm",
+      "type": "measurement",
+      "calibration_required": true
+    },
+    {
+      "id": "T-016",
+      "name": "Oil Can, Pump Action 250ml",
+      "type": "lubrication",
+      "calibration_required": false
+    },
+    {
+      "id": "T-017",
+      "name": "Dielectric Gloves, Class 00, 500V",
+      "type": "ppe",
+      "calibration_required": false
+    },
+    {
+      "id": "T-018",
+      "name": "Circuit Breaker Lockout Device",
+      "type": "lockout",
+      "calibration_required": false
+    },
+    {
+      "id": "T-019",
+      "name": "Hydraulic Torque Wrench, 200-2000 Nm",
+      "type": "torque_wrench",
+      "calibration_required": true
+    },
+    {
+      "id": "T-020",
+      "name": "Vibration Analyzer, SKF Microlog",
+      "type": "diagnostic",
+      "calibration_required": true
+    },
+    {
+      "id": "T-021",
+      "name": "Adjustable Wrench, 300mm",
+      "type": "hand_tool",
+      "calibration_required": false
+    },
+    {
+      "id": "T-022",
+      "name": "Cordless Drill, 18V Li-Ion",
+      "type": "power_tool",
+      "calibration_required": false
+    },
+    {
+      "id": "T-023",
+      "name": "Wire Rope Sling, 3 Ton WLL",
+      "type": "lifting",
+      "calibration_required": false
+    },
+    {
+      "id": "T-024",
+      "name": "Digital Pressure Gauge, 0-100 Bar",
+      "type": "measurement",
+      "calibration_required": true
+    },
+    {
+      "id": "T-025",
+      "name": "Bearing Packer Tool with Grease Reservoir",
+      "type": "lubrication",
+      "calibration_required": false
+    },
+    {
+      "id": "T-026",
+      "name": "Arc Flash Protection Suit, 40 cal/cm\u00b2",
+      "type": "ppe",
+      "calibration_required": false
+    },
+    {
+      "id": "T-027",
+      "name": "Valve Lockout Device, Gate Valve Type",
+      "type": "lockout",
+      "calibration_required": false
+    },
+    {
+      "id": "T-028",
+      "name": "Thermal Imaging Camera, FLIR E6",
+      "type": "diagnostic",
+      "calibration_required": true
+    },
+    {
+      "id": "T-029",
+      "name": "Hex Key Set, Metric 2-14mm",
+      "type": "hand_tool",
+      "calibration_required": false
+    },
+    {
+      "id": "T-030",
+      "name": "Vernier Caliper, 0-150mm Digital",
+      "type": "measurement",
+      "calibration_required": true
+    }
+  ],
+  "components": [
+    {
+      "id": "C-001",
+      "name": "Mechanical Seal Type-A 50mm",
+      "category": "pump_part",
+      "material": "carbon_ceramic"
+    },
+    {
+      "id": "C-002",
+      "name": "Stainless Bolt M12x80 Grade 8.8",
+      "category": "fastener",
+      "material": "stainless_steel"
+    },
+    {
+      "id": "C-003",
+      "name": "Ball Bearing 6205-2RS",
+      "category": "pump_part",
+      "material": "chrome_steel"
+    },
+    {
+      "id": "C-004",
+      "name": "Gate Valve Stem 3/4 inch",
+      "category": "valve_part",
+      "material": "stainless_steel"
+    },
+    {
+      "id": "C-005",
+      "name": "Carbon Steel Bolt M16x100 Grade 10.9",
+      "category": "fastener",
+      "material": "carbon_steel"
+    },
+    {
+      "id": "C-006",
+      "name": "Motor Cooling Fan 250mm Diameter",
+      "category": "motor_part",
+      "material": "aluminum"
+    },
+    {
+      "id": "C-007",
+      "name": "Heat Exchanger Tube 25mm OD",
+      "category": "heat_exchanger_part",
+      "material": "copper"
+    },
+    {
+      "id": "C-008",
+      "name": "Hex Nut M20 Grade 8",
+      "category": "fastener",
+      "material": "carbon_steel"
+    },
+    {
+      "id": "C-009",
+      "name": "Compressor Piston Ring Set 100mm",
+      "category": "compressor_part",
+      "material": "carbon_steel"
+    },
+    {
+      "id": "C-010",
+      "name": "Pressure Transmitter Diaphragm 316SS",
+      "category": "instrumentation_part",
+      "material": "stainless_steel"
+    },
+    {
+      "id": "C-011",
+      "name": "Stud Bolt M24x200 Grade 8.8",
+      "category": "fastener",
+      "material": "stainless_steel"
+    },
+    {
+      "id": "C-012",
+      "name": "Spiral Wound Gasket 4 inch 150#",
+      "category": "gasket",
+      "material": "stainless_steel"
+    },
+    {
+      "id": "C-013",
+      "name": "Impeller Bronze 150mm",
+      "category": "pump_part",
+      "material": "bronze"
+    },
+    {
+      "id": "C-014",
+      "name": "Ball Valve Seat PTFE 2 inch",
+      "category": "valve_part",
+      "material": "ptfe"
+    },
+    {
+      "id": "C-015",
+      "name": "Hex Bolt M10x60 Grade 8.8",
+      "category": "fastener",
+      "material": "stainless_steel"
+    },
+    {
+      "id": "C-016",
+      "name": "Motor Bearing 6308-ZZ",
+      "category": "motor_part",
+      "material": "chrome_steel"
+    },
+    {
+      "id": "C-017",
+      "name": "Tube Sheet Plate 316L",
+      "category": "heat_exchanger_part",
+      "material": "stainless_steel"
+    },
+    {
+      "id": "C-018",
+      "name": "Lock Washer M16 Spring Type",
+      "category": "fastener",
+      "material": "carbon_steel"
+    },
+    {
+      "id": "C-019",
+      "name": "Compressor Valve Plate Assembly",
+      "category": "compressor_part",
+      "material": "stainless_steel"
+    },
+    {
+      "id": "C-020",
+      "name": "RTD Sensor PT100 6mm Probe",
+      "category": "instrumentation_part",
+      "material": "stainless_steel"
+    },
+    {
+      "id": "C-021",
+      "name": "Heavy Hex Nut M30 Grade 10",
+      "category": "fastener",
+      "material": "carbon_steel"
+    },
+    {
+      "id": "C-022",
+      "name": "EPDM O-Ring 70mm ID x 5mm CS",
+      "category": "gasket",
+      "material": "epdm"
+    },
+    {
+      "id": "C-023",
+      "name": "Wear Ring Set 125mm Pump",
+      "category": "pump_part",
+      "material": "bronze"
+    },
+    {
+      "id": "C-024",
+      "name": "Butterfly Valve Disc 6 inch",
+      "category": "valve_part",
+      "material": "stainless_steel"
+    },
+    {
+      "id": "C-025",
+      "name": "Stainless Bolt M8x50 Grade A4-70",
+      "category": "fastener",
+      "material": "stainless_steel"
+    },
+    {
+      "id": "C-026",
+      "name": "Rotor Assembly 15kW Motor",
+      "category": "motor_part",
+      "material": "carbon_steel"
+    },
+    {
+      "id": "C-027",
+      "name": "Baffle Plate Stainless 300mm",
+      "category": "heat_exchanger_part",
+      "material": "stainless_steel"
+    },
+    {
+      "id": "C-028",
+      "name": "Socket Head Cap Screw M14x70",
+      "category": "fastener",
+      "material": "carbon_steel"
+    },
+    {
+      "id": "C-029",
+      "name": "Reed Valve Set Compressor",
+      "category": "compressor_part",
+      "material": "carbon_steel"
+    },
+    {
+      "id": "C-030",
+      "name": "Flow Orifice Plate 50mm SS316",
+      "category": "instrumentation_part",
+      "material": "stainless_steel"
+    },
+    {
+      "id": "C-031",
+      "name": "Flange Bolt M20x120 Grade 8.8",
+      "category": "fastener",
+      "material": "carbon_steel"
+    },
+    {
+      "id": "C-032",
+      "name": "Viton Gasket 3 inch 300#",
+      "category": "gasket",
+      "material": "viton"
+    },
+    {
+      "id": "C-033",
+      "name": "Pump Shaft 316SS 40mm Diameter",
+      "category": "pump_part",
+      "material": "stainless_steel"
+    },
+    {
+      "id": "C-034",
+      "name": "Check Valve Spring Inconel",
+      "category": "valve_part",
+      "material": "stainless_steel"
+    },
+    {
+      "id": "C-035",
+      "name": "Terminal Box Gasket Motor",
+      "category": "motor_part",
+      "material": "epdm"
+    },
+    {
+      "id": "C-036",
+      "name": "Fin Tube Bundle 1.5m Length",
+      "category": "heat_exchanger_part",
+      "material": "copper"
+    },
+    {
+      "id": "C-037",
+      "name": "Piston Pin 50mm Compressor",
+      "category": "compressor_part",
+      "material": "chrome_steel"
+    },
+    {
+      "id": "C-038",
+      "name": "Thermocouple Type-K 200mm",
+      "category": "instrumentation_part",
+      "material": "n/a"
+    },
+    {
+      "id": "C-039",
+      "name": "PTFE Tape 12mm x 12m Roll",
+      "category": "consumable",
+      "material": "ptfe"
+    },
+    {
+      "id": "C-040",
+      "name": "Bearing Grease NLGI-2 Lithium 400g",
+      "category": "lubricant",
+      "material": "n/a"
+    },
+    {
+      "id": "C-041",
+      "name": "Lantern Ring Brass 60mm",
+      "category": "pump_part",
+      "material": "brass"
+    },
+    {
+      "id": "C-042",
+      "name": "Globe Valve Bonnet 2 inch",
+      "category": "valve_part",
+      "material": "carbon_steel"
+    },
+    {
+      "id": "C-043",
+      "name": "Stator Winding 22kW 415V",
+      "category": "motor_part",
+      "material": "copper"
+    },
+    {
+      "id": "C-044",
+      "name": "Gasket Sheet EPDM 3mm Thickness",
+      "category": "gasket",
+      "material": "epdm"
+    },
+    {
+      "id": "C-045",
+      "name": "Connecting Rod Assembly Compressor",
+      "category": "compressor_part",
+      "material": "carbon_steel"
+    },
+    {
+      "id": "C-046",
+      "name": "Pressure Gauge Bourdon Tube Brass",
+      "category": "instrumentation_part",
+      "material": "brass"
+    },
+    {
+      "id": "C-047",
+      "name": "Anti-Seize Compound Copper 500g",
+      "category": "lubricant",
+      "material": "n/a"
+    },
+    {
+      "id": "C-048",
+      "name": "Cleaning Solvent Degreaser 5L",
+      "category": "consumable",
+      "material": "n/a"
+    },
+    {
+      "id": "C-049",
+      "name": "Stuffing Box Gland 75mm",
+      "category": "pump_part",
+      "material": "bronze"
+    },
+    {
+      "id": "C-050",
+      "name": "Valve Packing PTFE Graphite 1/2 inch",
+      "category": "valve_part",
+      "material": "ptfe"
+    },
+    {
+      "id": "C-051",
+      "name": "Coupling Half Spider Motor",
+      "category": "motor_part",
+      "material": "n/a"
+    },
+    {
+      "id": "C-052",
+      "name": "U-Tube Bundle Stainless",
+      "category": "heat_exchanger_part",
+      "material": "stainless_steel"
+    },
+    {
+      "id": "C-053",
+      "name": "Cylinder Liner 150mm Bore",
+      "category": "compressor_part",
+      "material": "carbon_steel"
+    },
+    {
+      "id": "C-054",
+      "name": "Control Valve Actuator Diaphragm",
+      "category": "instrumentation_part",
+      "material": "viton"
+    },
+    {
+      "id": "C-055",
+      "name": "Thread Locking Compound Medium Strength",
+      "category": "consumable",
+      "material": "n/a"
+    },
+    {
+      "id": "C-056",
+      "name": "Hydraulic Oil ISO VG 46 20L",
+      "category": "lubricant",
+      "material": "n/a"
+    },
+    {
+      "id": "C-057",
+      "name": "Back Plate Pump Cast Iron",
+      "category": "pump_part",
+      "material": "carbon_steel"
+    },
+    {
+      "id": "C-058",
+      "name": "Needle Valve Stem 1/4 inch SS",
+      "category": "valve_part",
+      "material": "stainless_steel"
+    },
+    {
+      "id": "C-059",
+      "name": "Compressed Fiber Gasket 6 inch 150#",
+      "category": "gasket",
+      "material": "n/a"
+    },
+    {
+      "id": "C-060",
+      "name": "Gear Oil SAE 140 5L Bottle",
+      "category": "lubricant",
+      "material": "n/a"
+    }
+  ],
+  "certifications": [
+    {
+      "id": "CERT-1",
+      "name": "Mechanical Maintenance Level 1",
+      "level": 1,
+      "scope": "Authorized to perform basic mechanical tasks including routine inspections, minor adjustments, and component replacement under direct supervision."
+    },
+    {
+      "id": "CERT-2",
+      "name": "Mechanical Maintenance Level 2",
+      "level": 2,
+      "scope": "Authorized to perform intermediate mechanical work including pump overhauls, bearing replacement, alignment, and bolt torquing with minimal supervision."
+    },
+    {
+      "id": "CERT-3",
+      "name": "Mechanical Maintenance Level 3",
+      "level": 3,
+      "scope": "Authorized to perform advanced mechanical work, complex troubleshooting, precision alignment, and to supervise and inspect work performed by lower level technicians."
+    },
+    {
+      "id": "CERT-4",
+      "name": "Electrical Safety LV Authorization",
+      "level": 2,
+      "scope": "Authorized to work on low voltage electrical systems up to 1000V AC including motor connections, control circuits, and isolation procedures."
+    },
+    {
+      "id": "CERT-5",
+      "name": "Electrical Technician Advanced",
+      "level": 3,
+      "scope": "Authorized to perform advanced electrical diagnostics, testing, and troubleshooting including insulation resistance testing, thermography, and electrical system modifications."
+    },
+    {
+      "id": "CERT-6",
+      "name": "Pressure Systems Inspector Level 2",
+      "level": 2,
+      "scope": "Authorized to inspect, test, and certify pressure vessels, piping systems, and relief devices in accordance with applicable codes and standards."
+    },
+    {
+      "id": "CERT-7",
+      "name": "Pressure Systems Technician Level 3",
+      "level": 3,
+      "scope": "Authorized to design repairs, perform pressure testing, witness hydrostatic tests, and approve pressure system modifications as competent person."
+    },
+    {
+      "id": "CERT-8",
+      "name": "Instrumentation Technician Level 2",
+      "level": 2,
+      "scope": "Authorized to calibrate, maintain, and troubleshoot process instrumentation including transmitters, control valves, analyzers, and safety instrumented systems."
+    },
+    {
+      "id": "CERT-9",
+      "name": "Confined Space Entry Authorized",
+      "level": 2,
+      "scope": "Authorized to enter and work in confined spaces including vessels, tanks, and pits after proper atmospheric testing, ventilation, and permit procedures."
+    },
+    {
+      "id": "CERT-10",
+      "name": "Lifting Operations Supervisor",
+      "level": 3,
+      "scope": "Authorized to plan, supervise, and certify lifting operations including crane lifts, rigging inspections, load calculations, and lift plan approval."
+    }
+  ],
+  "defects": [
+    {
+      "id": "D-001",
+      "name": "Improper Bolt Torque Sequence",
+      "severity": "medium",
+      "escalation": "supervisor sign-off and re-torque verification required"
+    },
+    {
+      "id": "D-002",
+      "name": "Seal Face Misalignment",
+      "severity": "high",
+      "escalation": "mechanical level 3 technician inspection and realignment"
+    },
+    {
+      "id": "D-003",
+      "name": "Cable Insulation Damage",
+      "severity": "critical",
+      "escalation": "stop work, isolate circuit, notify electrical supervisor and safety officer"
+    },
+    {
+      "id": "D-004",
+      "name": "Gasket Surface Scoring",
+      "severity": "medium",
+      "escalation": "supervisor review, resurface or replace flange as needed"
+    },
+    {
+      "id": "D-005",
+      "name": "Bearing Contamination",
+      "severity": "medium",
+      "escalation": "replace bearing, supervisor to review lubrication procedures"
+    },
+    {
+      "id": "D-006",
+      "name": "Valve Packing Leak",
+      "severity": "low",
+      "escalation": "adjust or replace packing, supervisor notification if persistent"
+    },
+    {
+      "id": "D-007",
+      "name": "Motor Winding Insulation Breakdown",
+      "severity": "critical",
+      "escalation": "stop work, de-energize, electrical level 3 inspection and engineering review"
+    },
+    {
+      "id": "D-008",
+      "name": "Pressure Vessel Weld Crack",
+      "severity": "critical",
+      "escalation": "stop work, isolate system, pressure systems inspector and engineering review required"
+    },
+    {
+      "id": "D-009",
+      "name": "Coupling Misalignment Excessive",
+      "severity": "high",
+      "escalation": "mechanical level 2 or 3 technician to perform precision alignment"
+    },
+    {
+      "id": "D-010",
+      "name": "Fastener Thread Damage",
+      "severity": "medium",
+      "escalation": "replace fastener, supervisor sign-off on critical applications"
+    },
+    {
+      "id": "D-011",
+      "name": "Instrument Calibration Drift Beyond Tolerance",
+      "severity": "medium",
+      "escalation": "recalibrate immediately, notify instrumentation supervisor if repeated"
+    },
+    {
+      "id": "D-012",
+      "name": "Pump Impeller Cavitation Damage",
+      "severity": "high",
+      "escalation": "QA inspector review, engineering analysis of system conditions required"
+    },
+    {
+      "id": "D-013",
+      "name": "Inadequate Thread Engagement",
+      "severity": "high",
+      "escalation": "replace with correct length fastener, mechanical level 3 verification"
+    },
+    {
+      "id": "D-014",
+      "name": "Heat Exchanger Tube Fouling Severe",
+      "severity": "medium",
+      "escalation": "chemical cleaning or tube bundle replacement, supervisor approval required"
+    },
+    {
+      "id": "D-015",
+      "name": "Safety Device Bypass or Override Detected",
+      "severity": "critical",
+      "escalation": "stop work immediately, notify safety officer, management review and investigation"
+    }
+  ]
+}

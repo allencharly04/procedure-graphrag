@@ -42,3 +42,9 @@ llama.cpp/
 # OS
 .DS_Store
 Thumbs.db
+
+# Exception: keep the synthetic-data seeds (used for reproducibility)
+!data/synthetic/catalog.json
+!data/synthetic/procedures.json
+!data/synthetic/torque_specs.json
+!data/eval_queries.jsonl
