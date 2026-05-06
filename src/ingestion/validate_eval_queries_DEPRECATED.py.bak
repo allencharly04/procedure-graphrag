@@ -1,0 +1,168 @@
+"""Validate eval questions against the live Neo4j graph.
+
+For each draft question:
+  1. Run ground_truth_cypher against Neo4j
+  2. Compare result to expected_answer using the question's match mode
+  3. Mark VALID / INVALID and accumulate stats
+
+Outputs:
+  data/eval_queries.jsonl        - validated questions only (the gold set)
+  data/eval_validation_log.jsonl - per-question validation result
+"""
+import json
+import os
+import sys
+from pathlib import Path
+
+from dotenv import load_dotenv
+from neo4j import GraphDatabase
+
+load_dotenv()
+
+ROOT = Path(__file__).resolve().parents[2]
+DRAFT_FILE = ROOT / "data" / "eval_queries_revalidated.jsonl"
+VALID_FILE = ROOT / "data" / "eval_queries_revalidated.jsonl"
+LOG_FILE = ROOT / "data" / "eval_validation_log.jsonl"
+
+URI = os.getenv("NEO4J_URI", "bolt://localhost:7687")
+USER = os.getenv("NEO4J_USER", "neo4j")
+PASSWORD = os.getenv("NEO4J_PASSWORD", "assemblyrag2026")
+
+
+def normalize_set(value):
+    """Normalize a value for set comparison."""
+    if isinstance(value, list):
+        return sorted(str(v).strip() for v in value)
+    return [str(value).strip()]
+
+
+def run_query(session, cypher):
+    """Run a query and return the answer column as a list of values."""
+    result = session.run(cypher)
+    rows = []
+    for record in result:
+        if len(record.keys()) == 1:
+            rows.append(record[record.keys()[0]])
+        else:
+            rows.append(dict(record))
+    return rows
+
+
+def validate_question(session, q):
+    """Run the cypher, compare to expected_answer. Return (is_valid, observed, reason)."""
+    cypher = q.get("ground_truth_cypher", "")
+    expected = q.get("expected_answer")
+    mode = q.get("expected_match_mode", "exact")
+
+    try:
+        observed_rows = run_query(session, cypher)
+    except Exception as e:
+        return False, None, "cypher_error: " + str(e)[:200]
+
+    # If single row + single column, unwrap
+    if len(observed_rows) == 1 and not isinstance(observed_rows[0], dict):
+        observed = observed_rows[0]
+    elif len(observed_rows) == 0:
+        observed = None
+    else:
+        observed = observed_rows
+
+    if mode == "exact":
+        # Coerce strings/ints for comparison
+        if str(observed).strip() == str(expected).strip():
+            return True, observed, None
+        return False, observed, f"exact_mismatch: expected {expected!r}, got {observed!r}"
+
+    elif mode == "set":
+        obs_set = normalize_set(observed) if observed is not None else []
+        exp_set = normalize_set(expected) if expected is not None else []
+        if obs_set == exp_set:
+            return True, observed, None
+        # Compute differences for the log
+        missing = [x for x in exp_set if x not in obs_set]
+        extra = [x for x in obs_set if x not in exp_set]
+        return False, observed, f"set_mismatch: missing={missing[:3]}, extra={extra[:3]}"
+
+    elif mode == "numeric_within_tolerance":
+        try:
+            obs_num = float(observed)
+            exp_num = float(expected)
+            if exp_num == 0:
+                ok = obs_num == 0
+            else:
+                ok = abs(obs_num - exp_num) / abs(exp_num) <= 0.01
+            if ok:
+                return True, observed, None
+            return False, observed, f"numeric_mismatch: expected {exp_num}, got {obs_num}"
+        except (TypeError, ValueError) as e:
+            return False, observed, "numeric_parse_error: " + str(e)
+
+    return False, observed, "unknown_match_mode: " + mode
+
+
+def main():
+    if not DRAFT_FILE.exists():
+        print("[FAIL] Draft file not found: " + str(DRAFT_FILE))
+        sys.exit(1)
+
+    with open(DRAFT_FILE) as f:
+        questions = [json.loads(line) for line in f]
+    print("[*] Loaded " + str(len(questions)) + " draft questions")
+
+    driver = GraphDatabase.driver(URI, auth=(USER, PASSWORD))
+    valid_questions = []
+    log_records = []
+    by_category = {"single_hop": [0, 0], "multi_hop": [0, 0], "arithmetic": [0, 0]}
+
+    try:
+        with driver.session() as session:
+            for q in questions:
+                is_valid, observed, reason = validate_question(session, q)
+                cat = q.get("category", "unknown")
+                if cat in by_category:
+                    if is_valid:
+                        by_category[cat][0] += 1
+                    by_category[cat][1] += 1
+
+                log_records.append({
+                    "id": q["id"],
+                    "category": cat,
+                    "valid": is_valid,
+                    "reason": reason,
+                    "expected": q.get("expected_answer"),
+                    "observed": observed,
+                })
+
+                if is_valid:
+                    valid_questions.append(q)
+                    print("  [OK]   " + q["id"] + " " + cat)
+                else:
+                    print("  [FAIL] " + q["id"] + " " + cat + " :: " + str(reason)[:120])
+    finally:
+        driver.close()
+
+    print()
+    print("[*] Results by category (valid / total):")
+    for cat, (v, t) in by_category.items():
+        pct = 100 * v / t if t else 0
+        print("    " + cat + ": " + str(v) + " / " + str(t)
+              + " ({:.0f}%)".format(pct))
+
+    print()
+    print("[*] Total valid: " + str(len(valid_questions)) + " / " + str(len(questions)))
+
+    # Write validated set
+    with open(VALID_FILE, "w") as f:
+        for q in valid_questions:
+            f.write(json.dumps(q) + "\n")
+    print("[OK] Wrote " + str(VALID_FILE))
+
+    # Write log
+    with open(LOG_FILE, "w") as f:
+        for rec in log_records:
+            f.write(json.dumps(rec, default=str) + "\n")
+    print("[OK] Wrote " + str(LOG_FILE))
+
+
+if __name__ == "__main__":
+    main()
