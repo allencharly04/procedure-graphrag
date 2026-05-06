@@ -50,12 +50,30 @@ The dataset is fully reproducible from a seed JSON committed to this repo.
 
 Results are reported as the latency Pareto frontier vs. answer F1 (string match) and LLM-as-judge quality scores. Reproducibility: all numbers are reported against a single reference setup (RTX 2060, CUDA 12.1, WSL2 Ubuntu 24.04, Python 3.11).
 
+## Current state (Phase 2 complete)
+
+| Metric | Value |
+|---|---|
+| Procedures | 30 across 7 equipment types |
+| Steps | 257 (avg 8.6 per procedure, range 4-14) |
+| Tools / Components / Certifications / Defects | 30 / 60 / 10 / 15 |
+| Torque specs | 18 (range 22-390 Nm) |
+| Procedure prerequisites | 10 (33% have one prereq) |
+| Graph nodes / edges | 420 / 1034 |
+| Eval questions | 48 (20 single-hop / 18 multi-hop / 10 arithmetic) |
+
+The eval ground-truth answers are computed by executing the gold-standard Cypher
+against Neo4j, not by LLM hand-computation. Initial validation showed 60% of
+LLM-generated answers were incorrect when compared against database results,
+which motivated the "trust the database, not the LLM" methodology now used
+throughout the eval pipeline.
+
 ## Project status
 
 This is an active build. Tracking progress:
 
 - [x] **Phase 1 — Foundation:** WSL2 environment, Neo4j 5.26 + APOC via Docker, Ollama integration, embeddings smoke tests
-- [ ] **Phase 2 — Synthetic domain:** maintenance procedure knowledge graph generation, 50 ground-truth Q/A pairs
+- [x] **Phase 2 — Synthetic domain:** maintenance procedure knowledge graph generation, 50 ground-truth Q/A pairs
 - [ ] **Phase 3 — GraphRAG v0 baseline:** vector + graph retrieval + llama3.1:8b fp16 monolithic prompt — the bar to beat
 - [ ] **Phase 4 — Optimization sweep:** model x quant x backend x chain grid (~50 configurations)
 - [ ] **Phase 5 — Final pipeline + tests:** Pareto-optimal config wired into Streamlit, pytest latency regression
