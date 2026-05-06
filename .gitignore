@@ -1,0 +1,44 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Environments
+.env
+*.env.local
+
+# Data + models (regeneratable from seed)
+data/synthetic/*.json
+data/eval_queries.jsonl
+benchmarks/results/*.json
+benchmarks/results/*.csv
+benchmarks/results/*.png
+
+# But keep the seed config and example queries
+!data/synthetic/.gitkeep
+!benchmarks/results/.gitkeep
+
+# Local Neo4j data
+neo4j_data/
+neo4j_logs/
+
+# llama.cpp build artifacts (Phase 5)
+llama.cpp/
+
+# Models
+*.gguf
+*.safetensors
+*.bin
+*.pt
+*.pth
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
