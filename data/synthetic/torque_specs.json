@@ -1,0 +1,148 @@
+{
+  "torque_specs": [
+    {
+      "id": "TS-001",
+      "applies_to_component": "C-002",
+      "target_nm": 85,
+      "tolerance_nm": 5,
+      "pattern": "star",
+      "conditions": "threads lubricated with anti-seize, ambient temperature"
+    },
+    {
+      "id": "TS-002",
+      "applies_to_component": "C-015",
+      "target_nm": 48,
+      "tolerance_nm": 4,
+      "pattern": "sequential",
+      "conditions": "medium strength thread locker applied, dry torque"
+    },
+    {
+      "id": "TS-003",
+      "applies_to_component": "C-008",
+      "target_nm": 380,
+      "tolerance_nm": 20,
+      "pattern": "single",
+      "conditions": "lubricated threads, room temperature"
+    },
+    {
+      "id": "TS-004",
+      "applies_to_component": "C-031",
+      "target_nm": 390,
+      "tolerance_nm": 25,
+      "pattern": "star",
+      "conditions": "clean dry threads, gasket compressed"
+    },
+    {
+      "id": "TS-005",
+      "applies_to_component": "C-005",
+      "target_nm": 200,
+      "tolerance_nm": 15,
+      "pattern": "cross",
+      "conditions": "clean threads with lock washer, ambient temperature"
+    },
+    {
+      "id": "TS-006",
+      "applies_to_component": "C-002",
+      "target_nm": 85,
+      "tolerance_nm": 5,
+      "pattern": "star",
+      "conditions": "lubricated threads with anti-seize compound, room temperature"
+    },
+    {
+      "id": "TS-007",
+      "applies_to_component": "C-015",
+      "target_nm": 48,
+      "tolerance_nm": 4,
+      "pattern": "cross",
+      "conditions": "dry threads, ambient temperature"
+    },
+    {
+      "id": "TS-008",
+      "applies_to_component": "C-015",
+      "target_nm": 45,
+      "tolerance_nm": 3,
+      "pattern": "cross",
+      "conditions": "lubricated threads with anti-seize compound, hand-tighten first then final torque"
+    },
+    {
+      "id": "TS-009",
+      "applies_to_component": "C-031",
+      "target_nm": 380,
+      "tolerance_nm": 20,
+      "pattern": "star",
+      "conditions": "lubricated threads with anti-seize, ambient temperature"
+    },
+    {
+      "id": "TS-010",
+      "applies_to_component": "C-002",
+      "target_nm": 85,
+      "tolerance_nm": 5,
+      "pattern": "cross",
+      "conditions": "dry threads, room temperature"
+    },
+    {
+      "id": "TS-011",
+      "applies_to_component": "C-015",
+      "target_nm": 48,
+      "tolerance_nm": 5,
+      "pattern": "sequential",
+      "conditions": "lubricated threads, gland follower compression"
+    },
+    {
+      "id": "TS-012",
+      "applies_to_component": "C-015",
+      "target_nm": 45,
+      "tolerance_nm": 5,
+      "pattern": "star",
+      "conditions": "clean dry threads, room temperature"
+    },
+    {
+      "id": "TS-013",
+      "applies_to_component": "C-025",
+      "target_nm": 22,
+      "tolerance_nm": 3,
+      "pattern": "sequential",
+      "conditions": "anti-seize applied, terminal box cover"
+    },
+    {
+      "id": "TS-014",
+      "applies_to_component": "C-031",
+      "target_nm": 380,
+      "tolerance_nm": 20,
+      "pattern": "cross",
+      "conditions": "lubricated threads, foundation bolts"
+    },
+    {
+      "id": "TS-015",
+      "applies_to_component": "C-005",
+      "target_nm": 195,
+      "tolerance_nm": 15,
+      "pattern": "sequential",
+      "conditions": "clean threads, transport skid mounting"
+    },
+    {
+      "id": "TS-016",
+      "applies_to_component": "C-031",
+      "target_nm": 380,
+      "tolerance_nm": 20,
+      "pattern": "star",
+      "conditions": "lubricated threads with anti-seize compound, ambient temperature, three-pass sequence"
+    },
+    {
+      "id": "TS-017",
+      "applies_to_component": "C-002",
+      "target_nm": 85,
+      "tolerance_nm": 8,
+      "pattern": "star",
+      "conditions": "clean dry threads, cylinder head application"
+    },
+    {
+      "id": "TS-018",
+      "applies_to_component": "C-005",
+      "target_nm": 200,
+      "tolerance_nm": 15,
+      "pattern": "sequential",
+      "conditions": "lubricated threads, connecting rod bolts"
+    }
+  ]
+}
