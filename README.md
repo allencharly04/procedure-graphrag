@@ -1,5 +1,9 @@
 # procedure-graphrag
 
+**Live demo:** [procedure-graphrag.streamlit.app](https://procedure-graphrag.streamlit.app) — interactive benchmark report + try the live cloud pipeline (Neo4j AuraDB + Groq).
+
+
+
 > Latency-optimized GraphRAG pipeline with a multi-backend LLM benchmark suite.
 
 A reference implementation for **hybrid graph + vector retrieval over procedural knowledge**, paired with a benchmark harness that measures end-to-end query latency across model sizes, quantization levels, inference backends, and prompt strategies. Built to explore how far GraphRAG response times can be pushed for low-latency, real-time use cases — voice assistants, on-device copilots, embedded support tools.
@@ -131,7 +135,7 @@ This is an active build. Tracking progress:
 - [x] **Phase 2 — Synthetic domain:** maintenance procedure knowledge graph generation, 48 Cypher-validated ground-truth Q/A pairs
 - [x] **Phase 3 — GraphRAG v0 baseline:** vector + graph retrieval + llama3.1:8b Q4_K_M monolithic prompt
 - [x] **Phase 4 — Optimization sweep:** 7 configurations across model size, prompt strategy, and chain design
-- [ ] **Phase 5 — Final pipeline + tests:** Pareto-optimal config wired into Streamlit, pytest latency regression
+- [x] **Phase 5 — Live demo:** Streamlit app deployed at procedure-graphrag.streamlit.app (Neo4j AuraDB + Groq)
 - [ ] **Phase 6 — Voice layer (optional):** faster-whisper + Piper for hands-free use
 
 See [REPORT.md](./REPORT.md) for benchmark results once Phase 4 is complete.
