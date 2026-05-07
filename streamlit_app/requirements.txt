@@ -1,0 +1,8 @@
+streamlit>=1.32
+pandas>=2.0
+plotly>=5.20
+neo4j>=5.0
+chromadb>=0.4
+sentence-transformers>=2.5
+groq>=0.4
+python-dotenv>=1.0

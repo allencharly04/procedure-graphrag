@@ -47,6 +47,7 @@ Thumbs.db
 !data/synthetic/catalog.json
 !data/synthetic/procedures.json
 !data/synthetic/torque_specs.json
+!data/synthetic/graph_seed.json
 !data/eval_queries.jsonl
 data/chroma/
 
@@ -56,3 +57,7 @@ data/chroma/
 neo4j_import/
 neo4j_logs/
 neo4j_data/
+
+# Streamlit secrets — never commit
+.streamlit/secrets.toml
+streamlit_app/.streamlit/secrets.toml
