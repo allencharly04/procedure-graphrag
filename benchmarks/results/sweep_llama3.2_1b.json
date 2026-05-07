@@ -1,0 +1,1970 @@
+{
+  "summary": {
+    "config_label": "llama3.2:1b",
+    "model": "llama3.2:1b",
+    "backend": "ollama",
+    "prompt_strategy": "monolithic",
+    "total_questions": 48,
+    "valid_runs": 48,
+    "errors": 0,
+    "correct": 6,
+    "accuracy": 0.125,
+    "wall_clock_seconds": 23.218860496999923,
+    "latency_ms": {
+      "p50_total": 437.5685249999606,
+      "p95_total": 856.5913059999275,
+      "mean_total": 483.6066234791759,
+      "mean_retrieve": 31.002075937484125,
+      "mean_prefill": 58.4145125,
+      "mean_decode": 194.51311250000003
+    },
+    "by_category": {
+      "single_hop": {
+        "total": 20,
+        "correct": 2,
+        "accuracy": 0.1,
+        "mean_total_ms": 452.6502784000172
+      },
+      "multi_hop": {
+        "total": 18,
+        "correct": 3,
+        "accuracy": 0.16666666666666666,
+        "mean_total_ms": 528.0818476666632
+      },
+      "arithmetic": {
+        "total": 10,
+        "correct": 1,
+        "accuracy": 0.1,
+        "mean_total_ms": 465.4639101000157
+      }
+    }
+  },
+  "results": [
+    {
+      "id": "Q-001",
+      "category": "single_hop",
+      "question": "What certifications are required for procedure PRC-001?",
+      "expected": [
+        "CERT-2",
+        "CERT-6"
+      ],
+      "expected_mode": "set",
+      "predicted": "PRC-002\nPRC-003\nPRC-004\nPRC-005\nPRC-006\nPRC-007",
+      "correct": false,
+      "score_kind": "set_mismatch",
+      "score_notes": "missing=['CERT-2', 'CERT-6'] extra=['PRC-002', 'PRC-003', 'PRC-004']",
+      "context_chars": 1915,
+      "context_tokens": 478,
+      "prompt_chars": 2740,
+      "graph_invocations": [
+        "procedure_by_id"
+      ],
+      "vector_uids_kept": [
+        "PRC-007:1",
+        "PRC-027:8",
+        "PRC-006:2",
+        "PRC-011:4",
+        "PRC-030:8"
+      ],
+      "model": "llama3.2:1b",
+      "latency": {
+        "embed_ms": null,
+        "retrieve_vector_ms": null,
+        "retrieve_graph_ms": 412.02703299995846,
+        "format_ms": 0.005216000090513262,
+        "llm_request_ms": 498.07460800002445,
+        "llm_prompt_eval_ms": 64.6464,
+        "llm_decode_ms": 230.8997,
+        "total_ms": 910.4076580001674
+      },
+      "prompt_eval_count": 626,
+      "eval_count": 30
+    },
+    {
+      "id": "Q-002",
+      "category": "single_hop",
+      "question": "Which tools are used in step 7 of PRC-001?",
+      "expected": [
+        "T-001"
+      ],
+      "expected_mode": "set",
+      "predicted": "T-002\nT-003\nT-004\nT-005\nT-006\nT-007",
+      "correct": false,
+      "score_kind": "set_mismatch",
+      "score_notes": "missing=['T-001'] extra=['T-002', 'T-003', 'T-004']",
+      "context_chars": 1925,
+      "context_tokens": 481,
+      "prompt_chars": 2737,
+      "graph_invocations": [
+        "procedure_by_id"
+      ],
+      "vector_uids_kept": [
+        "PRC-007:1",
+        "PRC-004:5",
+        "PRC-027:8",
+        "PRC-011:4",
+        "PRC-003:4"
+      ],
+      "model": "llama3.2:1b",
+      "latency": {
+        "embed_ms": null,
+        "retrieve_vector_ms": null,
+        "retrieve_graph_ms": 22.849188000009235,
+        "format_ms": 0.00642899999547808,
+        "llm_request_ms": 427.13499700016655,
+        "llm_prompt_eval_ms": 31.8237,
+        "llm_decode_ms": 182.7271,
+        "total_ms": 450.14999699992586
+      },
+      "prompt_eval_count": 642,
+      "eval_count": 24
+    },
+    {
+      "id": "Q-003",
+      "category": "single_hop",
+      "question": "What is the criticality level of procedure PRC-004?",
+      "expected": "critical",
+      "expected_mode": "exact",
+      "predicted": "C",
+      "correct": false,
+      "score_kind": "exact_mismatch",
+      "score_notes": "pred='C' exp='critical'",
+      "context_chars": 2333,
+      "context_tokens": 583,
+      "prompt_chars": 3154,
+      "graph_invocations": [
+        "procedure_by_id"
+      ],
+      "vector_uids_kept": [
+        "PRC-007:1",
+        "PRC-027:6",
+        "PRC-010:9",
+        "PRC-023:7",
+        "PRC-011:8"
+      ],
+      "model": "llama3.2:1b",
+      "latency": {
+        "embed_ms": null,
+        "retrieve_vector_ms": null,
+        "retrieve_graph_ms": 40.922184999999445,
+        "format_ms": 0.005465000185722602,
+        "llm_request_ms": 281.50857900004667,
+        "llm_prompt_eval_ms": 86.647,
+        "llm_decode_ms": 8.9323,
+        "total_ms": 322.58034799997404
+      },
+      "prompt_eval_count": 740,
+      "eval_count": 2
+    },
+    {
+      "id": "Q-004",
+      "category": "single_hop",
+      "question": "Which component does torque specification TS-001 apply to?",
+      "expected": "C-002",
+      "expected_mode": "exact",
+      "predicted": "TS-001\nT-001\nCERT-X\nD-001\nC-001\nTS-001",
+      "correct": false,
+      "score_kind": "exact_mismatch",
+      "score_notes": "pred='TS-001\\nT-001\\nCERT-X\\nD-001\\nC-001\\nTS-001' exp='C-002'",
+      "context_chars": 846,
+      "context_tokens": 211,
+      "prompt_chars": 1674,
+      "graph_invocations": [],
+      "vector_uids_kept": [
+        "PRC-016:6",
+        "PRC-010:8",
+        "PRC-001:7",
+        "PRC-002:8",
+        "PRC-022:7"
+      ],
+      "model": "llama3.2:1b",
+      "latency": {
+        "embed_ms": null,
+        "retrieve_vector_ms": null,
+        "retrieve_graph_ms": 14.490577999822563,
+        "format_ms": 0.005208000175116467,
+        "llm_request_ms": 411.74288299998807,
+        "llm_prompt_eval_ms": 35.3102,
+        "llm_decode_ms": 175.4675,
+        "total_ms": 426.38013300006605
+      },
+      "prompt_eval_count": 398,
+      "eval_count": 23
+    },
+    {
+      "id": "Q-005",
+      "category": "single_hop",
+      "question": "What is the target torque in Nm for torque specification TS-003?",
+      "expected": 380,
+      "expected_mode": "exact",
+      "predicted": "TS-003\n1000",
+      "correct": false,
+      "score_kind": "exact_mismatch",
+      "score_notes": "pred='TS-003\\n1000' exp='380'",
+      "context_chars": 835,
+      "context_tokens": 208,
+      "prompt_chars": 1669,
+      "graph_invocations": [],
+      "vector_uids_kept": [
+        "PRC-016:6",
+        "PRC-030:7",
+        "PRC-010:8",
+        "PRC-027:7",
+        "PRC-030:6"
+      ],
+      "model": "llama3.2:1b",
+      "latency": {
+        "embed_ms": null,
+        "retrieve_vector_ms": null,
+        "retrieve_graph_ms": 139.9231679999957,
+        "format_ms": 0.0036640001326304628,
+        "llm_request_ms": 274.1148309999062,
+        "llm_prompt_eval_ms": 27.6033,
+        "llm_decode_ms": 48.1811,
+        "total_ms": 414.17374100001325
+      },
+      "prompt_eval_count": 389,
+      "eval_count": 7
+    },
+    {
+      "id": "Q-006",
+      "category": "single_hop",
+      "question": "Which defects can be produced by step 5 of PRC-003?",
+      "expected": [
+        "D-012"
+      ],
+      "expected_mode": "set",
+      "predicted": "PRC-003, Step 5\nT-001\nHOLD POINT\nD-002\nC-005\nTS-006",
+      "correct": false,
+      "score_kind": "set_mismatch",
+      "score_notes": "missing=['D-012'] extra=['C-005', 'D-002', 'PRC-003']",
+      "context_chars": 2056,
+      "context_tokens": 514,
+      "prompt_chars": 2877,
+      "graph_invocations": [
+        "procedure_by_id"
+      ],
+      "vector_uids_kept": [
+        "PRC-011:4",
+        "PRC-007:1",
+        "PRC-010:9",
+        "PRC-011:8",
+        "PRC-011:3"
+      ],
+      "model": "llama3.2:1b",
+      "latency": {
+        "embed_ms": null,
+        "retrieve_vector_ms": null,
+        "retrieve_graph_ms": 23.466214999871227,
+        "format_ms": 0.0026539998998487135,
+        "llm_request_ms": 513.480798000046,
+        "llm_prompt_eval_ms": 74.1104,
+        "llm_decode_ms": 222.6861,
+        "total_ms": 537.264814999844
+      },
+      "prompt_eval_count": 695,
+      "eval_count": 29
+    },
+    {
+      "id": "Q-007",
+      "category": "single_hop",
+      "question": "Does tool T-001 require calibration?",
+      "expected": true,
+      "expected_mode": "exact",
+      "predicted": "T-001\nPRC-024\nPRC-014\nPRC-012\nPRC-025\nPRC-010\nPRC-001\nPRC-008\nPRC-015",
+      "correct": false,
+      "score_kind": "exact_mismatch",
+      "score_notes": "pred='T-001\\nPRC-024\\nPRC-014\\nPRC-012\\nPRC-025\\nPRC-010\\nPRC-001\\nPRC-008\\nPRC-015' exp='True'",
+      "context_chars": 1673,
+      "context_tokens": 418,
+      "prompt_chars": 2479,
+      "graph_invocations": [
+        "tool_lookup",
+        "procedures_by_equipment"
+      ],
+      "vector_uids_kept": [
+        "PRC-027:7",
+        "PRC-027:6",
+        "PRC-027:5",
+        "PRC-027:8",
+        "PRC-027:3"
+      ],
+      "model": "llama3.2:1b",
+      "latency": {
+        "embed_ms": null,
+        "retrieve_vector_ms": null,
+        "retrieve_graph_ms": 29.610548999926323,
+        "format_ms": 0.005107000106363557,
+        "llm_request_ms": 613.8033130000622,
+        "llm_prompt_eval_ms": 63.5243,
+        "llm_decode_ms": 340.7916,
+        "total_ms": 643.6381290000099
+      },
+      "prompt_eval_count": 599,
+      "eval_count": 44
+    },
+    {
+      "id": "Q-008",
+      "category": "single_hop",
+      "question": "What is the estimated duration in minutes for the Centrifugal Pump Mechanical Seal Replacement procedure with ID PRC-006?",
+      "expected": 180,
+      "expected_mode": "exact",
+      "predicted": "180",
+      "correct": true,
+      "score_kind": "exact_numeric",
+      "score_notes": "",
+      "context_chars": 5031,
+      "context_tokens": 1257,
+      "prompt_chars": 5922,
+      "graph_invocations": [
+        "procedure_by_id",
+        "procedures_by_cert",
+        "procedures_by_equipment"
+      ],
+      "vector_uids_kept": [
+        "PRC-001:5"
+      ],
+      "model": "llama3.2:1b",
+      "latency": {
+        "embed_ms": null,
+        "retrieve_vector_ms": null,
+        "retrieve_graph_ms": 39.15400800019597,
+        "format_ms": 0.003949000074499054,
+        "llm_request_ms": 392.04127500011055,
+        "llm_prompt_eval_ms": 197.3743,
+        "llm_decode_ms": 8.4903,
+        "total_ms": 431.40342500009865
+      },
+      "prompt_eval_count": 1484,
+      "eval_count": 2
+    },
+    {
+      "id": "Q-009",
+      "category": "single_hop",
+      "question": "What components are used in step 3 of PRC-002?",
+      "expected": [
+        "C-015"
+      ],
+      "expected_mode": "set",
+      "predicted": "H-001\nT-003\nC-005\nTS-007",
+      "correct": false,
+      "score_kind": "set_mismatch",
+      "score_notes": "missing=['C-015'] extra=['C-005', 'T-003', 'TS-007']",
+      "context_chars": 1942,
+      "context_tokens": 485,
+      "prompt_chars": 2758,
+      "graph_invocations": [
+        "procedure_by_id"
+      ],
+      "vector_uids_kept": [
+        "PRC-007:1",
+        "PRC-010:9",
+        "PRC-004:5",
+        "PRC-027:8",
+        "PRC-004:2"
+      ],
+      "model": "llama3.2:1b",
+      "latency": {
+        "embed_ms": null,
+        "retrieve_vector_ms": null,
+        "retrieve_graph_ms": 21.19035900000199,
+        "format_ms": 0.004170000011072261,
+        "llm_request_ms": 394.8817870000312,
+        "llm_prompt_eval_ms": 66.7534,
+        "llm_decode_ms": 116.3014,
+        "total_ms": 416.19011700004194
+      },
+      "prompt_eval_count": 645,
+      "eval_count": 16
+    },
+    {
+      "id": "Q-010",
+      "category": "single_hop",
+      "question": "What is the torque pattern specified in TS-009?",
+      "expected": "star",
+      "expected_mode": "exact",
+      "predicted": "TS-009\n8",
+      "correct": false,
+      "score_kind": "exact_mismatch",
+      "score_notes": "pred='TS-009\\n8' exp='star'",
+      "context_chars": 857,
+      "context_tokens": 214,
+      "prompt_chars": 1674,
+      "graph_invocations": [],
+      "vector_uids_kept": [
+        "PRC-016:6",
+        "PRC-010:8",
+        "PRC-002:8",
+        "PRC-004:9",
+        "PRC-030:1"
+      ],
+      "model": "llama3.2:1b",
+      "latency": {
+        "embed_ms": null,
+        "retrieve_vector_ms": null,
+        "retrieve_graph_ms": 13.972367999940616,
+        "format_ms": 0.005463999968924327,
+        "llm_request_ms": 260.82054699986656,
+        "llm_prompt_eval_ms": 34.9057,
+        "llm_decode_ms": 38.9679,
+        "total_ms": 274.90790100000595
+      },
+      "prompt_eval_count": 389,
+      "eval_count": 6
+    },
+    {
+      "id": "Q-011",
+      "category": "single_hop",
+      "question": "Which procedures must be completed before starting Gate Valve Bonnet Gasket Replacement Under Pressure?",
+      "expected": [
+        "PRC-009"
+      ],
+      "expected_mode": "set",
+      "predicted": "PRC-009\nPRC-011\nPRC-013",
+      "correct": true,
+      "score_kind": "set_superset",
+      "score_notes": "extra_ids=['PRC-011', 'PRC-013']",
+      "context_chars": 2747,
+      "context_tokens": 686,
+      "prompt_chars": 3620,
+      "graph_invocations": [
+        "procedures_by_cert",
+        "procedures_by_equipment"
+      ],
+      "vector_uids_kept": [
+        "PRC-013:1",
+        "PRC-013:2",
+        "PRC-013:4",
+        "PRC-013:5",
+        "PRC-013:3"
+      ],
+      "model": "llama3.2:1b",
+      "latency": {
+        "embed_ms": null,
+        "retrieve_vector_ms": null,
+        "retrieve_graph_ms": 33.42554799996833,
+        "format_ms": 0.003068000069106347,
+        "llm_request_ms": 398.53628199989544,
+        "llm_prompt_eval_ms": 106.6999,
+        "llm_decode_ms": 110.4163,
+        "total_ms": 432.10163300000204
+      },
+      "prompt_eval_count": 888,
+      "eval_count": 15
+    },
+    {
+      "id": "Q-012",
+      "category": "single_hop",
+      "question": "What is the severity level of defect D-007?",
+      "expected": "critical",
+      "expected_mode": "exact",
+      "predicted": "D-007\nC-001\nTS-01",
+      "correct": false,
+      "score_kind": "exact_mismatch",
+      "score_notes": "pred='D-007\\nC-001\\nTS-01' exp='critical'",
+      "context_chars": 835,
+      "context_tokens": 208,
+      "prompt_chars": 1648,
+      "graph_invocations": [],
+      "vector_uids_kept": [
+        "PRC-029:5",
+        "PRC-011:4",
+        "PRC-011:8",
+        "PRC-012:8",
+        "PRC-013:7"
+      ],
+      "model": "llama3.2:1b",
+      "latency": {
+        "embed_ms": null,
+        "retrieve_vector_ms": null,
+        "retrieve_graph_ms": 24.681082999904902,
+        "format_ms": 0.0037740001062047668,
+        "llm_request_ms": 306.82058000002144,
+        "llm_prompt_eval_ms": 34.2128,
+        "llm_decode_ms": 87.3926,
+        "total_ms": 331.6077409999707
+      },
+      "prompt_eval_count": 390,
+      "eval_count": 12
+    },
+    {
+      "id": "Q-013",
+      "category": "single_hop",
+      "question": "Is step 4 of PRC-001 a hold point?",
+      "expected": true,
+      "expected_mode": "exact",
+      "predicted": "HOLD POINT\nT-001",
+      "correct": false,
+      "score_kind": "exact_mismatch",
+      "score_notes": "pred='HOLD POINT\\nT-001' exp='True'",
+      "context_chars": 1853,
+      "context_tokens": 463,
+      "prompt_chars": 2657,
+      "graph_invocations": [
+        "procedure_by_id"
+      ],
+      "vector_uids_kept": [
+        "PRC-007:1",
+        "PRC-028:3",
+        "PRC-028:7",
+        "PRC-010:9",
+        "PRC-011:1"
+      ],
+      "model": "llama3.2:1b",
+      "latency": {
+        "embed_ms": null,
+        "retrieve_vector_ms": null,
+        "retrieve_graph_ms": 22.788751000007323,
+        "format_ms": 0.004601000000548083,
+        "llm_request_ms": 306.97844099995564,
+        "llm_prompt_eval_ms": 64.5935,
+        "llm_decode_ms": 55.4964,
+        "total_ms": 330.13694700002816
+      },
+      "prompt_eval_count": 625,
+      "eval_count": 8
+    },
+    {
+      "id": "Q-014",
+      "category": "single_hop",
+      "question": "What torque specification is associated with step 8 of PRC-002?",
+      "expected": "TS-002",
+      "expected_mode": "exact",
+      "predicted": "T-001",
+      "correct": false,
+      "score_kind": "exact_mismatch",
+      "score_notes": "pred='T-001' exp='TS-002'",
+      "context_chars": 1756,
+      "context_tokens": 439,
+      "prompt_chars": 2589,
+      "graph_invocations": [
+        "procedure_by_id"
+      ],
+      "vector_uids_kept": [
+        "PRC-003:8",
+        "PRC-010:8",
+        "PRC-022:8",
+        "PRC-016:6"
+      ],
+      "model": "llama3.2:1b",
+      "latency": {
+        "embed_ms": null,
+        "retrieve_vector_ms": null,
+        "retrieve_graph_ms": 20.275300999855972,
+        "format_ms": 0.0029939999421912944,
+        "llm_request_ms": 270.3271410000525,
+        "llm_prompt_eval_ms": 64.442,
+        "llm_decode_ms": 23.4609,
+        "total_ms": 290.73902799996176
+      },
+      "prompt_eval_count": 613,
+      "eval_count": 4
+    },
+    {
+      "id": "Q-015",
+      "category": "single_hop",
+      "question": "What is the material of component C-013?",
+      "expected": "bronze",
+      "expected_mode": "exact",
+      "predicted": "C-013\nD-001\nTS-123",
+      "correct": false,
+      "score_kind": "exact_mismatch",
+      "score_notes": "pred='C-013\\nD-001\\nTS-123' exp='bronze'",
+      "context_chars": 835,
+      "context_tokens": 208,
+      "prompt_chars": 1645,
+      "graph_invocations": [],
+      "vector_uids_kept": [
+        "PRC-004:6",
+        "PRC-005:5",
+        "PRC-001:3",
+        "PRC-014:5",
+        "PRC-010:6"
+      ],
+      "model": "llama3.2:1b",
+      "latency": {
+        "embed_ms": null,
+        "retrieve_vector_ms": null,
+        "retrieve_graph_ms": 12.746924000111903,
+        "format_ms": 0.0027919998046854744,
+        "llm_request_ms": 306.9773540000824,
+        "llm_prompt_eval_ms": 34.2383,
+        "llm_decode_ms": 86.1358,
+        "total_ms": 319.8342410000805
+      },
+      "prompt_eval_count": 395,
+      "eval_count": 12
+    },
+    {
+      "id": "Q-016",
+      "category": "single_hop",
+      "question": "Which certifications are required for Induction Motor Terminal Box Re-wiring?",
+      "expected": [
+        "CERT-4",
+        "CERT-5"
+      ],
+      "expected_mode": "set",
+      "predicted": "PRC-015\nPRC-018\nPRC-017\nPRC-019",
+      "correct": false,
+      "score_kind": "set_mismatch",
+      "score_notes": "missing=['CERT-4', 'CERT-5'] extra=['PRC-015', 'PRC-017', 'PRC-018']",
+      "context_chars": 1542,
+      "context_tokens": 385,
+      "prompt_chars": 2389,
+      "graph_invocations": [
+        "procedures_by_equipment"
+      ],
+      "vector_uids_kept": [
+        "PRC-015:5",
+        "PRC-015:3",
+        "PRC-015:6",
+        "PRC-015:2",
+        "PRC-015:1"
+      ],
+      "model": "llama3.2:1b",
+      "latency": {
+        "embed_ms": null,
+        "retrieve_vector_ms": null,
+        "retrieve_graph_ms": 20.564121999996132,
+        "format_ms": 0.002947999973912374,
+        "llm_request_ms": 401.93565699996725,
+        "llm_prompt_eval_ms": 58.402,
+        "llm_decode_ms": 155.5631,
+        "total_ms": 422.70577200019943
+      },
+      "prompt_eval_count": 560,
+      "eval_count": 20
+    },
+    {
+      "id": "Q-017",
+      "category": "single_hop",
+      "question": "How many steps does procedure PRC-025 have?",
+      "expected": 14,
+      "expected_mode": "exact",
+      "predicted": "PRC-024\nPRC-026\nPRC-027\nPRC-028\nPRC-029\nPRC-030\nPRC-031\nPRC-032\nPRC-033\nPRC-034\nPRC-035\nPRC-036\nPRC-037",
+      "correct": false,
+      "score_kind": "exact_mismatch",
+      "score_notes": "pred='PRC-024\\nPRC-026\\nPRC-027\\nPRC-028\\nPRC-029\\nPRC-030\\nPRC-031\\nPRC-032\\nPRC-033\\nPRC-034\\n' exp='14'",
+      "context_chars": 2443,
+      "context_tokens": 610,
+      "prompt_chars": 3256,
+      "graph_invocations": [
+        "procedure_by_id"
+      ],
+      "vector_uids_kept": [
+        "PRC-010:9",
+        "PRC-007:1",
+        "PRC-011:4",
+        "PRC-012:8",
+        "PRC-011:6"
+      ],
+      "model": "llama3.2:1b",
+      "latency": {
+        "embed_ms": null,
+        "retrieve_vector_ms": null,
+        "retrieve_graph_ms": 18.954776999862588,
+        "format_ms": 0.0028199999633216066,
+        "llm_request_ms": 792.5344809998478,
+        "llm_prompt_eval_ms": 87.214,
+        "llm_decode_ms": 497.1371,
+        "total_ms": 811.6445170001043
+      },
+      "prompt_eval_count": 747,
+      "eval_count": 65
+    },
+    {
+      "id": "Q-018",
+      "category": "single_hop",
+      "question": "What is the tolerance in Nm for torque specification TS-005?",
+      "expected": 15,
+      "expected_mode": "exact",
+      "predicted": "TS-005\n0.1\nI don't have that information.",
+      "correct": false,
+      "score_kind": "exact_mismatch",
+      "score_notes": "pred=\"TS-005\\n0.1\\nI don't have that information.\" exp='15'",
+      "context_chars": 876,
+      "context_tokens": 219,
+      "prompt_chars": 1706,
+      "graph_invocations": [],
+      "vector_uids_kept": [
+        "PRC-030:6",
+        "PRC-030:7",
+        "PRC-028:3",
+        "PRC-027:6",
+        "PRC-027:5"
+      ],
+      "model": "llama3.2:1b",
+      "latency": {
+        "embed_ms": null,
+        "retrieve_vector_ms": null,
+        "retrieve_graph_ms": 12.261175999810803,
+        "format_ms": 0.003315000185466488,
+        "llm_request_ms": 351.26657799992245,
+        "llm_prompt_eval_ms": 34.1511,
+        "llm_decode_ms": 119.399,
+        "total_ms": 363.6345759998676
+      },
+      "prompt_eval_count": 395,
+      "eval_count": 16
+    },
+    {
+      "id": "Q-019",
+      "category": "single_hop",
+      "question": "What is the equipment type for Shell-and-Tube Heat Exchanger Tube Bundle Removal?",
+      "expected": "shell_tube_heat_exchanger",
+      "expected_mode": "exact",
+      "predicted": "PRC-020\nPRC-021\nPRC-022\nPRC-023",
+      "correct": false,
+      "score_kind": "exact_mismatch",
+      "score_notes": "pred='PRC-020\\nPRC-021\\nPRC-022\\nPRC-023' exp='shell_tube_heat_exchanger'",
+      "context_chars": 1663,
+      "context_tokens": 415,
+      "prompt_chars": 2514,
+      "graph_invocations": [
+        "procedures_by_equipment"
+      ],
+      "vector_uids_kept": [
+        "PRC-020:7",
+        "PRC-021:1",
+        "PRC-020:5",
+        "PRC-020:3",
+        "PRC-020:6"
+      ],
+      "model": "llama3.2:1b",
+      "latency": {
+        "embed_ms": null,
+        "retrieve_vector_ms": null,
+        "retrieve_graph_ms": 32.32906500011268,
+        "format_ms": 0.004417000127432402,
+        "llm_request_ms": 407.4560389999533,
+        "llm_prompt_eval_ms": 64.0985,
+        "llm_decode_ms": 155.6915,
+        "total_ms": 439.9122129998432
+      },
+      "prompt_eval_count": 583,
+      "eval_count": 20
+    },
+    {
+      "id": "Q-020",
+      "category": "single_hop",
+      "question": "Which tools are used in step 10 of PRC-004?",
+      "expected": [
+        "T-019"
+      ],
+      "expected_mode": "set",
+      "predicted": "T-001\nT-002\nT-003\nT-005\nT-006\nT-007",
+      "correct": false,
+      "score_kind": "set_mismatch",
+      "score_notes": "missing=['T-019'] extra=['T-001', 'T-002', 'T-003']",
+      "context_chars": 2182,
+      "context_tokens": 545,
+      "prompt_chars": 2995,
+      "graph_invocations": [
+        "procedure_by_id"
+      ],
+      "vector_uids_kept": [
+        "PRC-010:9",
+        "PRC-011:4",
+        "PRC-007:1",
+        "PRC-003:4"
+      ],
+      "model": "llama3.2:1b",
+      "latency": {
+        "embed_ms": null,
+        "retrieve_vector_ms": null,
+        "retrieve_graph_ms": 20.4688989999795,
+        "format_ms": 0.0028649999421759276,
+        "llm_request_ms": 462.9696540000623,
+        "llm_prompt_eval_ms": 75.0529,
+        "llm_decode_ms": 188.3929,
+        "total_ms": 483.59263600013946
+      },
+      "prompt_eval_count": 699,
+      "eval_count": 24
+    },
+    {
+      "id": "Q-021",
+      "category": "multi_hop",
+      "question": "Which procedures have a prerequisite that itself requires CERT-6?",
+      "expected": [
+        "PRC-007",
+        "PRC-013",
+        "PRC-021",
+        "PRC-022",
+        "PRC-023",
+        "PRC-025"
+      ],
+      "expected_mode": "set",
+      "predicted": "PRC-003\nPRC-006\nPRC-009\nPRC-020\nPRC-021\nPRC-022\nPRC-024",
+      "correct": false,
+      "score_kind": "set_mismatch",
+      "score_notes": "missing=['PRC-007', 'PRC-013', 'PRC-023'] extra=['PRC-003', 'PRC-006', 'PRC-009']",
+      "context_chars": 1723,
+      "context_tokens": 430,
+      "prompt_chars": 2558,
+      "graph_invocations": [
+        "procedures_by_cert"
+      ],
+      "vector_uids_kept": [
+        "PRC-011:7",
+        "PRC-010:9",
+        "PRC-009:6",
+        "PRC-001:7",
+        "PRC-011:6"
+      ],
+      "model": "llama3.2:1b",
+      "latency": {
+        "embed_ms": null,
+        "retrieve_vector_ms": null,
+        "retrieve_graph_ms": 21.665290000100867,
+        "format_ms": 0.002277000021422282,
+        "llm_request_ms": 545.8319780000238,
+        "llm_prompt_eval_ms": 66.4217,
+        "llm_decode_ms": 273.1974,
+        "total_ms": 567.6184349999858
+      },
+      "prompt_eval_count": 633,
+      "eval_count": 35
+    },
+    {
+      "id": "Q-022",
+      "category": "multi_hop",
+      "question": "List all procedures where any step uses both a torque wrench AND a fastener component.",
+      "expected": [
+        "PRC-001",
+        "PRC-002",
+        "PRC-003",
+        "PRC-004",
+        "PRC-006",
+        "PRC-007",
+        "PRC-008",
+        "PRC-009",
+        "PRC-011",
+        "PRC-012",
+        "PRC-013",
+        "PRC-014",
+        "PRC-015",
+        "PRC-016",
+        "PRC-019",
+        "PRC-022",
+        "PRC-025"
+      ],
+      "expected_mode": "set",
+      "predicted": "PRC-001\nT-002\nCERT-X\nD-003\nC-004\nTS-005",
+      "correct": false,
+      "score_kind": "set_mismatch",
+      "score_notes": "missing=['PRC-002', 'PRC-003', 'PRC-004'] extra=['C-004', 'D-003', 'T-002']",
+      "context_chars": 884,
+      "context_tokens": 221,
+      "prompt_chars": 1740,
+      "graph_invocations": [],
+      "vector_uids_kept": [
+        "PRC-026:8",
+        "PRC-011:7",
+        "PRC-010:8",
+        "PRC-025:11",
+        "PRC-022:6"
+      ],
+      "model": "llama3.2:1b",
+      "latency": {
+        "embed_ms": null,
+        "retrieve_vector_ms": null,
+        "retrieve_graph_ms": 14.166505000048346,
+        "format_ms": 0.005363999889596016,
+        "llm_request_ms": 429.2909939999845,
+        "llm_prompt_eval_ms": 39.3045,
+        "llm_decode_ms": 188.6253,
+        "total_ms": 443.6030419999497
+      },
+      "prompt_eval_count": 421,
+      "eval_count": 24
+    },
+    {
+      "id": "Q-023",
+      "category": "multi_hop",
+      "question": "Which defects can be produced by steps that have a torque specification with target above 200 Nm?",
+      "expected": [
+        "D-001",
+        "D-013"
+      ],
+      "expected_mode": "set",
+      "predicted": "TS-004\nTS-003\nTS-009\nTS-014\nTS-016",
+      "correct": false,
+      "score_kind": "set_mismatch",
+      "score_notes": "missing=['D-001', 'D-013'] extra=['TS-003', 'TS-004', 'TS-009']",
+      "context_chars": 1355,
+      "context_tokens": 338,
+      "prompt_chars": 2222,
+      "graph_invocations": [
+        "torque_filter_gt"
+      ],
+      "vector_uids_kept": [
+        "PRC-016:6",
+        "PRC-030:7",
+        "PRC-027:6",
+        "PRC-009:7",
+        "PRC-018:6"
+      ],
+      "model": "llama3.2:1b",
+      "latency": {
+        "embed_ms": null,
+        "retrieve_vector_ms": null,
+        "retrieve_graph_ms": 24.052460999882896,
+        "format_ms": 0.004859000000578817,
+        "llm_request_ms": 441.90171399986866,
+        "llm_prompt_eval_ms": 72.7849,
+        "llm_decode_ms": 161.4561,
+        "total_ms": 466.08066899989353
+      },
+      "prompt_eval_count": 632,
+      "eval_count": 20
+    },
+    {
+      "id": "Q-024",
+      "category": "multi_hop",
+      "question": "What are the IDs of all tools that require calibration and are used in procedures with critical criticality?",
+      "expected": [
+        "T-001",
+        "T-002",
+        "T-006",
+        "T-010",
+        "T-011",
+        "T-015",
+        "T-019",
+        "T-020",
+        "T-024",
+        "T-028",
+        "T-030"
+      ],
+      "expected_mode": "set",
+      "predicted": "PRC-027\nPRC-028\nPRC-029\nPRC-030",
+      "correct": false,
+      "score_kind": "set_mismatch",
+      "score_notes": "missing=['T-001', 'T-002', 'T-006'] extra=['PRC-027', 'PRC-028', 'PRC-029']",
+      "context_chars": 1408,
+      "context_tokens": 352,
+      "prompt_chars": 2286,
+      "graph_invocations": [
+        "procedures_by_equipment"
+      ],
+      "vector_uids_kept": [
+        "PRC-027:6",
+        "PRC-027:8",
+        "PRC-027:7",
+        "PRC-027:5",
+        "PRC-027:3"
+      ],
+      "model": "llama3.2:1b",
+      "latency": {
+        "embed_ms": null,
+        "retrieve_vector_ms": null,
+        "retrieve_graph_ms": 19.66553300007945,
+        "format_ms": 0.0055100001645769225,
+        "llm_request_ms": 413.256919999867,
+        "llm_prompt_eval_ms": 54.0177,
+        "llm_decode_ms": 163.5201,
+        "total_ms": 433.07778500002314
+      },
+      "prompt_eval_count": 501,
+      "eval_count": 20
+    },
+    {
+      "id": "Q-025",
+      "category": "multi_hop",
+      "question": "Which components are used in steps that are part of procedures requiring both CERT-3 and CERT-10?",
+      "expected": [
+        "C-002",
+        "C-005",
+        "C-009",
+        "C-012",
+        "C-018",
+        "C-031",
+        "C-033",
+        "C-037",
+        "C-039",
+        "C-044",
+        "C-047",
+        "C-048",
+        "C-051",
+        "C-052",
+        "C-056",
+        "C-057"
+      ],
+      "expected_mode": "set",
+      "predicted": "PRC-013\nPRC-019\nPRC-022\nPRC-023\nPRC-025",
+      "correct": false,
+      "score_kind": "set_mismatch",
+      "score_notes": "missing=['C-002', 'C-005', 'C-009'] extra=['PRC-013', 'PRC-019', 'PRC-022']",
+      "context_chars": 2221,
+      "context_tokens": 555,
+      "prompt_chars": 3088,
+      "graph_invocations": [
+        "procedures_by_cert"
+      ],
+      "vector_uids_kept": [
+        "PRC-010:9",
+        "PRC-011:4",
+        "PRC-004:5",
+        "PRC-027:8",
+        "PRC-010:1"
+      ],
+      "model": "llama3.2:1b",
+      "latency": {
+        "embed_ms": null,
+        "retrieve_vector_ms": null,
+        "retrieve_graph_ms": 22.205410999958985,
+        "format_ms": 0.00383900010092475,
+        "llm_request_ms": 500.26166599991484,
+        "llm_prompt_eval_ms": 99.3202,
+        "llm_decode_ms": 200.8278,
+        "total_ms": 522.6287749999301
+      },
+      "prompt_eval_count": 773,
+      "eval_count": 25
+    },
+    {
+      "id": "Q-026",
+      "category": "multi_hop",
+      "question": "Find all procedures that use components made of stainless_steel and also have at least one hold point step.",
+      "expected": [
+        "PRC-001",
+        "PRC-002",
+        "PRC-003",
+        "PRC-004",
+        "PRC-006",
+        "PRC-007",
+        "PRC-008",
+        "PRC-009",
+        "PRC-010",
+        "PRC-011",
+        "PRC-012",
+        "PRC-013",
+        "PRC-014",
+        "PRC-015",
+        "PRC-020",
+        "PRC-021",
+        "PRC-022",
+        "PRC-023",
+        "PRC-024",
+        "PRC-025"
+      ],
+      "expected_mode": "set",
+      "predicted": "PRC-001\nT-002\nCERT-003\nD-004\nC-005\nTS-006",
+      "correct": false,
+      "score_kind": "set_mismatch",
+      "score_notes": "missing=['PRC-002', 'PRC-003', 'PRC-004'] extra=['C-005', 'CERT-003', 'D-004']",
+      "context_chars": 840,
+      "context_tokens": 210,
+      "prompt_chars": 1717,
+      "graph_invocations": [],
+      "vector_uids_kept": [
+        "PRC-004:7",
+        "PRC-011:3",
+        "PRC-011:4",
+        "PRC-011:1",
+        "PRC-011:5"
+      ],
+      "model": "llama3.2:1b",
+      "latency": {
+        "embed_ms": null,
+        "retrieve_vector_ms": null,
+        "retrieve_graph_ms": 24.28193800005829,
+        "format_ms": 0.0028100000690756133,
+        "llm_request_ms": 453.3513660001063,
+        "llm_prompt_eval_ms": 39.4287,
+        "llm_decode_ms": 203.1455,
+        "total_ms": 477.7745569999752
+      },
+      "prompt_eval_count": 407,
+      "eval_count": 25
+    },
+    {
+      "id": "Q-028",
+      "category": "multi_hop",
+      "question": "List procedures for centrifugal pumps that have a prerequisite procedure.",
+      "expected": [
+        "PRC-007"
+      ],
+      "expected_mode": "set",
+      "predicted": "PRC-001\nPRC-002\nPRC-003\nPRC-004\nPRC-005\nPRC-006\nPRC-007\nPRC-008",
+      "correct": true,
+      "score_kind": "set_superset",
+      "score_notes": "extra_ids=['PRC-001', 'PRC-002', 'PRC-003', 'PRC-004', 'PRC-005', 'PRC-006', 'PRC-008']",
+      "context_chars": 1947,
+      "context_tokens": 486,
+      "prompt_chars": 2790,
+      "graph_invocations": [
+        "procedures_by_equipment"
+      ],
+      "vector_uids_kept": [
+        "PRC-004:2",
+        "PRC-003:3",
+        "PRC-004:1",
+        "PRC-003:5",
+        "PRC-006:8"
+      ],
+      "model": "llama3.2:1b",
+      "latency": {
+        "embed_ms": null,
+        "retrieve_vector_ms": null,
+        "retrieve_graph_ms": 21.309023999947385,
+        "format_ms": 0.003076999973927741,
+        "llm_request_ms": 623.9857750001647,
+        "llm_prompt_eval_ms": 80.1838,
+        "llm_decode_ms": 331.4692,
+        "total_ms": 645.5604800000856
+      },
+      "prompt_eval_count": 663,
+      "eval_count": 40
+    },
+    {
+      "id": "Q-029",
+      "category": "multi_hop",
+      "question": "What components are specified in torque specs that use a star pattern and are applied in procedures with high criticality?",
+      "expected": [
+        "C-002",
+        "C-015",
+        "C-031"
+      ],
+      "expected_mode": "set",
+      "predicted": "PRC-001\nT-002\nCERT-X\nD-003\nC-004\nTS-005",
+      "correct": false,
+      "score_kind": "set_mismatch",
+      "score_notes": "missing=['C-002', 'C-015', 'C-031'] extra=['C-004', 'D-003', 'PRC-001']",
+      "context_chars": 901,
+      "context_tokens": 225,
+      "prompt_chars": 1793,
+      "graph_invocations": [],
+      "vector_uids_kept": [
+        "PRC-001:7",
+        "PRC-003:10",
+        "PRC-006:10",
+        "PRC-013:6",
+        "PRC-022:7"
+      ],
+      "model": "llama3.2:1b",
+      "latency": {
+        "embed_ms": null,
+        "retrieve_vector_ms": null,
+        "retrieve_graph_ms": 13.116762999970888,
+        "format_ms": 0.002682000058484846,
+        "llm_request_ms": 447.3264799999015,
+        "llm_prompt_eval_ms": 41.5736,
+        "llm_decode_ms": 197.793,
+        "total_ms": 460.5742740000096
+      },
+      "prompt_eval_count": 421,
+      "eval_count": 24
+    },
+    {
+      "id": "Q-030",
+      "category": "multi_hop",
+      "question": "Which defects have escalation and can be produced by steps that use measurement type tools?",
+      "expected": [
+        "D-001",
+        "D-002",
+        "D-004",
+        "D-005",
+        "D-006",
+        "D-009",
+        "D-011",
+        "D-012",
+        "D-014",
+        "D-015"
+      ],
+      "expected_mode": "set",
+      "predicted": "PRC-001\nT-002\nCERT-X\nD-003\nC-004\nTS-005",
+      "correct": false,
+      "score_kind": "set_mismatch",
+      "score_notes": "missing=['D-001', 'D-002', 'D-004'] extra=['C-004', 'D-003', 'PRC-001']",
+      "context_chars": 856,
+      "context_tokens": 214,
+      "prompt_chars": 1717,
+      "graph_invocations": [],
+      "vector_uids_kept": [
+        "PRC-029:5",
+        "PRC-011:3",
+        "PRC-029:4",
+        "PRC-011:4",
+        "PRC-021:5"
+      ],
+      "model": "llama3.2:1b",
+      "latency": {
+        "embed_ms": null,
+        "retrieve_vector_ms": null,
+        "retrieve_graph_ms": 13.840464999930191,
+        "format_ms": 0.004859000000578817,
+        "llm_request_ms": 439.72354499987887,
+        "llm_prompt_eval_ms": 36.5816,
+        "llm_decode_ms": 198.6897,
+        "total_ms": 453.7135479999961
+      },
+      "prompt_eval_count": 396,
+      "eval_count": 24
+    },
+    {
+      "id": "Q-031",
+      "category": "multi_hop",
+      "question": "Find all procedures that require certifications of level 3 and have an estimated duration greater than 200 minutes.",
+      "expected": [
+        "PRC-003",
+        "PRC-004",
+        "PRC-019",
+        "PRC-020",
+        "PRC-022",
+        "PRC-023",
+        "PRC-025"
+      ],
+      "expected_mode": "set",
+      "predicted": "PRC-003\nPRC-004\nPRC-010\nPRC-013\nPRC-015\nPRC-019\nPRC-020\nPRC-022\nPRC-023\nPRC-025",
+      "correct": true,
+      "score_kind": "set_superset",
+      "score_notes": "extra_ids=['PRC-010', 'PRC-013', 'PRC-015']",
+      "context_chars": 2216,
+      "context_tokens": 554,
+      "prompt_chars": 3101,
+      "graph_invocations": [
+        "procedures_by_cert_level"
+      ],
+      "vector_uids_kept": [
+        "PRC-018:1",
+        "PRC-023:4",
+        "PRC-017:4",
+        "PRC-029:4",
+        "PRC-028:7"
+      ],
+      "model": "llama3.2:1b",
+      "latency": {
+        "embed_ms": null,
+        "retrieve_vector_ms": null,
+        "retrieve_graph_ms": 23.719404000075883,
+        "format_ms": 0.00478500010103744,
+        "llm_request_ms": 714.6405109999705,
+        "llm_prompt_eval_ms": 82.4481,
+        "llm_decode_ms": 415.9695,
+        "total_ms": 738.5036200000741
+      },
+      "prompt_eval_count": 702,
+      "eval_count": 50
+    },
+    {
+      "id": "Q-032",
+      "category": "multi_hop",
+      "question": "Which tools are used in steps that can produce high severity defects and are also used in gate valve procedures?",
+      "expected": [
+        "T-003",
+        "T-010",
+        "T-012",
+        "T-013",
+        "T-014",
+        "T-015",
+        "T-021",
+        "T-028",
+        "T-030"
+      ],
+      "expected_mode": "set",
+      "predicted": "PRC-009\nPRC-011\nTS-001",
+      "correct": false,
+      "score_kind": "set_mismatch",
+      "score_notes": "missing=['T-003', 'T-010', 'T-012'] extra=['PRC-009', 'PRC-011', 'TS-001']",
+      "context_chars": 1289,
+      "context_tokens": 322,
+      "prompt_chars": 2171,
+      "graph_invocations": [
+        "procedures_by_equipment"
+      ],
+      "vector_uids_kept": [
+        "PRC-011:4",
+        "PRC-009:8",
+        "PRC-011:3",
+        "PRC-011:8",
+        "PRC-009:4"
+      ],
+      "model": "llama3.2:1b",
+      "latency": {
+        "embed_ms": null,
+        "retrieve_vector_ms": null,
+        "retrieve_graph_ms": 18.673042000045825,
+        "format_ms": 0.003507999963403563,
+        "llm_request_ms": 355.6726230001459,
+        "llm_prompt_eval_ms": 49.828,
+        "llm_decode_ms": 102.1856,
+        "total_ms": 374.4743910001489
+      },
+      "prompt_eval_count": 503,
+      "eval_count": 14
+    },
+    {
+      "id": "Q-033",
+      "category": "multi_hop",
+      "question": "What are the distinct component categories used in procedures that have CERT-2 requirement and medium criticality?",
+      "expected": [
+        "consumable",
+        "fastener",
+        "gasket",
+        "heat_exchanger_part",
+        "lubricant",
+        "pump_part",
+        "valve_part"
+      ],
+      "expected_mode": "set",
+      "predicted": "PRC-001\nPRC-002\nPRC-006\nPRC-007\nPRC-009\nPRC-010\nPRC-011\nPRC-014\nPRC-016\nPRC-018\nPRC-021\nPRC-024\nPRC-026\nPRC-029",
+      "correct": false,
+      "score_kind": "set_mismatch",
+      "score_notes": "missing=['CONSUMABLE', 'FASTENER', 'GASKET'] extra=['PRC-001', 'PRC-002', 'PRC-006']",
+      "context_chars": 2168,
+      "context_tokens": 542,
+      "prompt_chars": 3052,
+      "graph_invocations": [
+        "procedures_by_cert"
+      ],
+      "vector_uids_kept": [
+        "PRC-006:5",
+        "PRC-006:2",
+        "PRC-007:1",
+        "PRC-001:8",
+        "PRC-006:1"
+      ],
+      "model": "llama3.2:1b",
+      "latency": {
+        "embed_ms": null,
+        "retrieve_vector_ms": null,
+        "retrieve_graph_ms": 19.502154999827326,
+        "format_ms": 0.002516999984436552,
+        "llm_request_ms": 836.9470249999722,
+        "llm_prompt_eval_ms": 88.9067,
+        "llm_decode_ms": 535.4166,
+        "total_ms": 856.5913059999275
+      },
+      "prompt_eval_count": 754,
+      "eval_count": 70
+    },
+    {
+      "id": "Q-034",
+      "category": "multi_hop",
+      "question": "Which procedures use components in the gasket category and also have steps with torque specifications?",
+      "expected": [
+        "PRC-003",
+        "PRC-004",
+        "PRC-006",
+        "PRC-009",
+        "PRC-010",
+        "PRC-011",
+        "PRC-013",
+        "PRC-022",
+        "PRC-024",
+        "PRC-025"
+      ],
+      "expected_mode": "set",
+      "predicted": "PRC-001\nT-002\nCERT-X\nD-003\nC-004\nTS-005",
+      "correct": false,
+      "score_kind": "set_mismatch",
+      "score_notes": "missing=['PRC-003', 'PRC-004', 'PRC-006'] extra=['C-004', 'D-003', 'PRC-001']",
+      "context_chars": 963,
+      "context_tokens": 240,
+      "prompt_chars": 1835,
+      "graph_invocations": [],
+      "vector_uids_kept": [
+        "PRC-022:6",
+        "PRC-022:8",
+        "PRC-022:7",
+        "PRC-022:9",
+        "PRC-025:12"
+      ],
+      "model": "llama3.2:1b",
+      "latency": {
+        "embed_ms": null,
+        "retrieve_vector_ms": null,
+        "retrieve_graph_ms": 23.765033000017866,
+        "format_ms": 0.004913000111628207,
+        "llm_request_ms": 414.94212900011007,
+        "llm_prompt_eval_ms": 39.5853,
+        "llm_decode_ms": 183.304,
+        "total_ms": 438.8324899998679
+      },
+      "prompt_eval_count": 441,
+      "eval_count": 24
+    },
+    {
+      "id": "Q-036",
+      "category": "multi_hop",
+      "question": "Find procedures where steps use bronze material components and the procedure requires at least two different certifications.",
+      "expected": [
+        "PRC-003",
+        "PRC-006"
+      ],
+      "expected_mode": "set",
+      "predicted": "PRC-001\nT-002\nCERT-X\nD-003\nC-004\nTS-005",
+      "correct": false,
+      "score_kind": "set_mismatch",
+      "score_notes": "missing=['PRC-003', 'PRC-006'] extra=['C-004', 'D-003', 'PRC-001']",
+      "context_chars": 792,
+      "context_tokens": 198,
+      "prompt_chars": 1686,
+      "graph_invocations": [],
+      "vector_uids_kept": [
+        "PRC-011:4",
+        "PRC-006:5",
+        "PRC-011:3",
+        "PRC-011:7",
+        "PRC-009:3"
+      ],
+      "model": "llama3.2:1b",
+      "latency": {
+        "embed_ms": null,
+        "retrieve_vector_ms": null,
+        "retrieve_graph_ms": 12.308203999964462,
+        "format_ms": 0.0026539998998487135,
+        "llm_request_ms": 405.60523399994963,
+        "llm_prompt_eval_ms": 32.6855,
+        "llm_decode_ms": 182.7616,
+        "total_ms": 418.04099700016195
+      },
+      "prompt_eval_count": 392,
+      "eval_count": 24
+    },
+    {
+      "id": "Q-037",
+      "category": "multi_hop",
+      "question": "Which components are used by steps in induction motor procedures that also have hold points set to true?",
+      "expected": [
+        "C-048",
+        "C-051"
+      ],
+      "expected_mode": "set",
+      "predicted": "PRC-014\nPRC-015\nPRC-016\nPRC-017\nPRC-018",
+      "correct": false,
+      "score_kind": "set_mismatch",
+      "score_notes": "missing=['C-048', 'C-051'] extra=['PRC-014', 'PRC-015', 'PRC-016']",
+      "context_chars": 1603,
+      "context_tokens": 400,
+      "prompt_chars": 2477,
+      "graph_invocations": [
+        "procedures_by_equipment"
+      ],
+      "vector_uids_kept": [
+        "PRC-016:2",
+        "PRC-016:6",
+        "PRC-016:7",
+        "PRC-019:7",
+        "PRC-019:8"
+      ],
+      "model": "llama3.2:1b",
+      "latency": {
+        "embed_ms": null,
+        "retrieve_vector_ms": null,
+        "retrieve_graph_ms": 19.29241500010903,
+        "format_ms": 0.002902000005633454,
+        "llm_request_ms": 445.11336700020365,
+        "llm_prompt_eval_ms": 59.1548,
+        "llm_decode_ms": 193.9183,
+        "total_ms": 464.5528399998966
+      },
+      "prompt_eval_count": 568,
+      "eval_count": 25
+    },
+    {
+      "id": "Q-038",
+      "category": "multi_hop",
+      "question": "What is the total number of distinct tools used across all steps of procedures that require CERT-10?",
+      "expected": 0,
+      "expected_mode": "exact",
+      "predicted": "PRC-004\nPRC-019\nPRC-020\nPRC-022\nPRC-025\nGlobe Valve Trim and Seat Overhaul\nGate Valve Internal Inspection and Reassembly\nCentrifugal Pump Mechanical Seal Replacement\nCentrifugal Pump Shaft and Back Plate Assembly\nGate Valve Internal Inspection and Reassembly\nCentrifugal Pump Mechanical Seal Replacement",
+      "correct": true,
+      "score_kind": "exact_substring",
+      "score_notes": "expected appeared as substring",
+      "context_chars": 1383,
+      "context_tokens": 345,
+      "prompt_chars": 2253,
+      "graph_invocations": [
+        "procedures_by_cert"
+      ],
+      "vector_uids_kept": [
+        "PRC-010:9",
+        "PRC-011:4",
+        "PRC-006:11",
+        "PRC-001:7",
+        "PRC-011:7"
+      ],
+      "model": "llama3.2:1b",
+      "latency": {
+        "embed_ms": null,
+        "retrieve_vector_ms": null,
+        "retrieve_graph_ms": 19.668259999889415,
+        "format_ms": 0.0028110000585002126,
+        "llm_request_ms": 876.3325850000001,
+        "llm_prompt_eval_ms": 58.5349,
+        "llm_decode_ms": 604.0117,
+        "total_ms": 896.1669049999728
+      },
+      "prompt_eval_count": 549,
+      "eval_count": 76
+    },
+    {
+      "id": "Q-039",
+      "category": "multi_hop",
+      "question": "Which procedures use tools requiring calibration in steps that can produce defects with medium severity?",
+      "expected": [
+        "PRC-001",
+        "PRC-002",
+        "PRC-003",
+        "PRC-004",
+        "PRC-006",
+        "PRC-007",
+        "PRC-008",
+        "PRC-009",
+        "PRC-010",
+        "PRC-011",
+        "PRC-012",
+        "PRC-013",
+        "PRC-014",
+        "PRC-015",
+        "PRC-016",
+        "PRC-018",
+        "PRC-019",
+        "PRC-020",
+        "PRC-021",
+        "PRC-022",
+        "PRC-023",
+        "PRC-024",
+        "PRC-025",
+        "PRC-027",
+        "PRC-028",
+        "PRC-029",
+        "PRC-030"
+      ],
+      "expected_mode": "set",
+      "predicted": "PRC-027\nPRC-028\nPRC-029\nPRC-030",
+      "correct": false,
+      "score_kind": "set_mismatch",
+      "score_notes": "missing=['PRC-001', 'PRC-002', 'PRC-003'] extra=[]",
+      "context_chars": 1419,
+      "context_tokens": 354,
+      "prompt_chars": 2293,
+      "graph_invocations": [
+        "procedures_by_equipment"
+      ],
+      "vector_uids_kept": [
+        "PRC-027:6",
+        "PRC-021:5",
+        "PRC-027:8",
+        "PRC-011:4",
+        "PRC-029:5"
+      ],
+      "model": "llama3.2:1b",
+      "latency": {
+        "embed_ms": null,
+        "retrieve_vector_ms": null,
+        "retrieve_graph_ms": 18.315514000050825,
+        "format_ms": 0.002865999931600527,
+        "llm_request_ms": 396.9876700000441,
+        "llm_prompt_eval_ms": 52.1472,
+        "llm_decode_ms": 152.0826,
+        "total_ms": 415.41947600012463
+      },
+      "prompt_eval_count": 519,
+      "eval_count": 20
+    },
+    {
+      "id": "Q-040",
+      "category": "multi_hop",
+      "question": "List all certifications required by procedures that have steps using components in both the fastener and gasket categories.",
+      "expected": [
+        "CERT-10",
+        "CERT-2",
+        "CERT-3",
+        "CERT-6",
+        "CERT-7"
+      ],
+      "expected_mode": "set",
+      "predicted": "PRC-001\nT-002\nCERT-X\nD-003\nC-004\nTS-005",
+      "correct": false,
+      "score_kind": "set_mismatch",
+      "score_notes": "missing=['CERT-10', 'CERT-2', 'CERT-3'] extra=['C-004', 'D-003', 'PRC-001']",
+      "context_chars": 830,
+      "context_tokens": 207,
+      "prompt_chars": 1723,
+      "graph_invocations": [],
+      "vector_uids_kept": [
+        "PRC-011:6",
+        "PRC-006:9",
+        "PRC-001:4",
+        "PRC-011:4",
+        "PRC-013:7"
+      ],
+      "model": "llama3.2:1b",
+      "latency": {
+        "embed_ms": null,
+        "retrieve_vector_ms": null,
+        "retrieve_graph_ms": 12.491299999965122,
+        "format_ms": 0.003920999915862922,
+        "llm_request_ms": 419.6329829999286,
+        "llm_prompt_eval_ms": 35.0433,
+        "llm_decode_ms": 188.3269,
+        "total_ms": 432.2596679999151
+      },
+      "prompt_eval_count": 405,
+      "eval_count": 24
+    },
+    {
+      "id": "Q-041",
+      "category": "arithmetic",
+      "question": "How many total steps are there across all induction motor procedures?",
+      "expected": 45,
+      "expected_mode": "exact",
+      "predicted": "PRC-014\nPRC-015\nPRC-016\nPRC-017\nPRC-018\nTS-001\nTS-002\nTS-003\nTS-004\nTS-005\nTS-006\nTS-007\nTS-008\nTS-009",
+      "correct": false,
+      "score_kind": "exact_mismatch",
+      "score_notes": "pred='PRC-014\\nPRC-015\\nPRC-016\\nPRC-017\\nPRC-018\\nTS-001\\nTS-002\\nTS-003\\nTS-004\\nTS-005\\nTS-00' exp='45'",
+      "context_chars": 1596,
+      "context_tokens": 399,
+      "prompt_chars": 2435,
+      "graph_invocations": [
+        "procedures_by_equipment"
+      ],
+      "vector_uids_kept": [
+        "PRC-019:7",
+        "PRC-016:7",
+        "PRC-016:6",
+        "PRC-016:3",
+        "PRC-019:8"
+      ],
+      "model": "llama3.2:1b",
+      "latency": {
+        "embed_ms": null,
+        "retrieve_vector_ms": null,
+        "retrieve_graph_ms": 29.423371999882875,
+        "format_ms": 0.0026360000902059255,
+        "llm_request_ms": 777.8699389998565,
+        "llm_prompt_eval_ms": 59.9259,
+        "llm_decode_ms": 478.7596,
+        "total_ms": 807.4300630000835
+      },
+      "prompt_eval_count": 560,
+      "eval_count": 61
+    },
+    {
+      "id": "Q-042",
+      "category": "arithmetic",
+      "question": "What is the average estimated duration in minutes of all procedures requiring CERT-3 certification?",
+      "expected": 276.875,
+      "expected_mode": "numeric_within_tolerance",
+      "predicted": "PRC-003\nPRC-004\nPRC-013\nPRC-019\nPRC-020\nPRC-022\nPRC-023\nPRC-025",
+      "correct": false,
+      "score_kind": "numeric",
+      "score_notes": "pred=-3 exp=276.875",
+      "context_chars": 1772,
+      "context_tokens": 443,
+      "prompt_chars": 2641,
+      "graph_invocations": [
+        "procedures_by_cert"
+      ],
+      "vector_uids_kept": [
+        "PRC-018:1",
+        "PRC-004:11",
+        "PRC-001:5",
+        "PRC-006:7",
+        "PRC-028:7"
+      ],
+      "model": "llama3.2:1b",
+      "latency": {
+        "embed_ms": null,
+        "retrieve_vector_ms": null,
+        "retrieve_graph_ms": 24.1352470000038,
+        "format_ms": 0.0028289998681430006,
+        "llm_request_ms": 585.2345779999268,
+        "llm_prompt_eval_ms": 65.2855,
+        "llm_decode_ms": 313.1133,
+        "total_ms": 609.5673320000969
+      },
+      "prompt_eval_count": 634,
+      "eval_count": 40
+    },
+    {
+      "id": "Q-043",
+      "category": "arithmetic",
+      "question": "What is the maximum target torque value in Newton-meters specified in any torque specification used in the graph?",
+      "expected": 390,
+      "expected_mode": "exact",
+      "predicted": "PRC-001\nT-1000",
+      "correct": false,
+      "score_kind": "exact_mismatch",
+      "score_notes": "pred='PRC-001\\nT-1000' exp='390'",
+      "context_chars": 821,
+      "context_tokens": 205,
+      "prompt_chars": 1704,
+      "graph_invocations": [],
+      "vector_uids_kept": [
+        "PRC-016:6",
+        "PRC-027:6",
+        "PRC-030:7",
+        "PRC-027:7",
+        "PRC-027:5"
+      ],
+      "model": "llama3.2:1b",
+      "latency": {
+        "embed_ms": null,
+        "retrieve_vector_ms": null,
+        "retrieve_graph_ms": 11.2478700000338,
+        "format_ms": 0.00293900006909098,
+        "llm_request_ms": 303.2375489999595,
+        "llm_prompt_eval_ms": 34.4928,
+        "llm_decode_ms": 72.5956,
+        "total_ms": 314.60385800005497
+      },
+      "prompt_eval_count": 395,
+      "eval_count": 10
+    },
+    {
+      "id": "Q-044",
+      "category": "arithmetic",
+      "question": "How many distinct tools require calibration and are used in at least one step?",
+      "expected": 11,
+      "expected_mode": "exact",
+      "predicted": "PRC-027\nPRC-028\nPRC-029\nPRC-030",
+      "correct": false,
+      "score_kind": "exact_mismatch",
+      "score_notes": "pred='PRC-027\\nPRC-028\\nPRC-029\\nPRC-030' exp='11'",
+      "context_chars": 1408,
+      "context_tokens": 352,
+      "prompt_chars": 2256,
+      "graph_invocations": [
+        "procedures_by_equipment"
+      ],
+      "vector_uids_kept": [
+        "PRC-027:6",
+        "PRC-027:8",
+        "PRC-027:7",
+        "PRC-027:5",
+        "PRC-027:3"
+      ],
+      "model": "llama3.2:1b",
+      "latency": {
+        "embed_ms": null,
+        "retrieve_vector_ms": null,
+        "retrieve_graph_ms": 18.73894699997436,
+        "format_ms": 0.0026640000214683823,
+        "llm_request_ms": 395.832745000007,
+        "llm_prompt_eval_ms": 49.6949,
+        "llm_decode_ms": 150.9771,
+        "total_ms": 414.6869180001431
+      },
+      "prompt_eval_count": 496,
+      "eval_count": 20
+    },
+    {
+      "id": "Q-045",
+      "category": "arithmetic",
+      "question": "What is the total number of hold points across all centrifugal pump procedures?",
+      "expected": 40,
+      "expected_mode": "exact",
+      "predicted": "PRC-001\nPRC-002\nPRC-003\nPRC-004\nPRC-005\nPRC-006\nPRC-007\nPRC-008",
+      "correct": false,
+      "score_kind": "exact_mismatch",
+      "score_notes": "pred='PRC-001\\nPRC-002\\nPRC-003\\nPRC-004\\nPRC-005\\nPRC-006\\nPRC-007\\nPRC-008' exp='40'",
+      "context_chars": 1932,
+      "context_tokens": 483,
+      "prompt_chars": 2781,
+      "graph_invocations": [
+        "procedures_by_equipment"
+      ],
+      "vector_uids_kept": [
+        "PRC-006:11",
+        "PRC-005:1",
+        "PRC-001:8",
+        "PRC-005:8",
+        "PRC-006:2"
+      ],
+      "model": "llama3.2:1b",
+      "latency": {
+        "embed_ms": null,
+        "retrieve_vector_ms": null,
+        "retrieve_graph_ms": 17.627806000064083,
+        "format_ms": 0.0025720000849105418,
+        "llm_request_ms": 589.2179840000153,
+        "llm_prompt_eval_ms": 74.1062,
+        "llm_decode_ms": 311.5638,
+        "total_ms": 606.9686839998667
+      },
+      "prompt_eval_count": 660,
+      "eval_count": 40
+    },
+    {
+      "id": "Q-046",
+      "category": "arithmetic",
+      "question": "How many procedures have a criticality level of critical?",
+      "expected": 5,
+      "expected_mode": "exact",
+      "predicted": "T-001\nC-002\nD-003\nTS-004",
+      "correct": false,
+      "score_kind": "exact_mismatch",
+      "score_notes": "pred='T-001\\nC-002\\nD-003\\nTS-004' exp='5'",
+      "context_chars": 823,
+      "context_tokens": 205,
+      "prompt_chars": 1650,
+      "graph_invocations": [],
+      "vector_uids_kept": [
+        "PRC-010:9",
+        "PRC-023:7",
+        "PRC-006:11",
+        "PRC-027:6",
+        "PRC-012:8"
+      ],
+      "model": "llama3.2:1b",
+      "latency": {
+        "embed_ms": null,
+        "retrieve_vector_ms": null,
+        "retrieve_graph_ms": 12.954721999903995,
+        "format_ms": 0.0034899999263870995,
+        "llm_request_ms": 342.6950630000647,
+        "llm_prompt_eval_ms": 35.225,
+        "llm_decode_ms": 116.2513,
+        "total_ms": 355.7808620000742
+      },
+      "prompt_eval_count": 404,
+      "eval_count": 16
+    },
+    {
+      "id": "Q-047",
+      "category": "arithmetic",
+      "question": "What is the minimum tolerance in Newton-meters among all torque specifications?",
+      "expected": 3,
+      "expected_mode": "exact",
+      "predicted": "D-001\nT-0001\nC-0002\nTS-0003",
+      "correct": true,
+      "score_kind": "exact_substring",
+      "score_notes": "expected appeared as substring",
+      "context_chars": 858,
+      "context_tokens": 214,
+      "prompt_chars": 1707,
+      "graph_invocations": [],
+      "vector_uids_kept": [
+        "PRC-030:6",
+        "PRC-030:7",
+        "PRC-027:6",
+        "PRC-016:6",
+        "PRC-027:5"
+      ],
+      "model": "llama3.2:1b",
+      "latency": {
+        "embed_ms": null,
+        "retrieve_vector_ms": null,
+        "retrieve_graph_ms": 13.585406999936822,
+        "format_ms": 0.0031409999792231247,
+        "llm_request_ms": 367.7582180000627,
+        "llm_prompt_eval_ms": 32.5741,
+        "llm_decode_ms": 144.3297,
+        "total_ms": 381.6355909998492
+      },
+      "prompt_eval_count": 394,
+      "eval_count": 19
+    },
+    {
+      "id": "Q-048",
+      "category": "arithmetic",
+      "question": "How many steps across all procedures can produce defect D-001?",
+      "expected": 25,
+      "expected_mode": "exact",
+      "predicted": "D-001\nT-001\nC-001\nTS-001",
+      "correct": false,
+      "score_kind": "exact_mismatch",
+      "score_notes": "pred='D-001\\nT-001\\nC-001\\nTS-001' exp='25'",
+      "context_chars": 824,
+      "context_tokens": 206,
+      "prompt_chars": 1656,
+      "graph_invocations": [],
+      "vector_uids_kept": [
+        "PRC-011:4",
+        "PRC-010:9",
+        "PRC-029:5",
+        "PRC-011:8",
+        "PRC-009:4"
+      ],
+      "model": "llama3.2:1b",
+      "latency": {
+        "embed_ms": null,
+        "retrieve_vector_ms": null,
+        "retrieve_graph_ms": 12.428361000047516,
+        "format_ms": 0.002902000005633454,
+        "llm_request_ms": 342.5120520000746,
+        "llm_prompt_eval_ms": 33.7,
+        "llm_decode_ms": 119.8699,
+        "total_ms": 355.0525609998658
+      },
+      "prompt_eval_count": 392,
+      "eval_count": 16
+    },
+    {
+      "id": "Q-049",
+      "category": "arithmetic",
+      "question": "What is the sum of estimated durations in minutes for all gate valve procedures?",
+      "expected": 290,
+      "expected_mode": "exact",
+      "predicted": "PRC-009\nPRC-011\nPRC-013",
+      "correct": false,
+      "score_kind": "exact_mismatch",
+      "score_notes": "pred='PRC-009\\nPRC-011\\nPRC-013' exp='290'",
+      "context_chars": 1286,
+      "context_tokens": 321,
+      "prompt_chars": 2136,
+      "graph_invocations": [
+        "procedures_by_equipment"
+      ],
+      "vector_uids_kept": [
+        "PRC-011:3",
+        "PRC-009:8",
+        "PRC-011:4",
+        "PRC-009:4",
+        "PRC-011:1"
+      ],
+      "model": "llama3.2:1b",
+      "latency": {
+        "embed_ms": null,
+        "retrieve_vector_ms": null,
+        "retrieve_graph_ms": 18.487860000050205,
+        "format_ms": 0.00269099996330624,
+        "llm_request_ms": 352.71411500002614,
+        "llm_prompt_eval_ms": 50.2638,
+        "llm_decode_ms": 113.6344,
+        "total_ms": 371.3447070001621
+      },
+      "prompt_eval_count": 498,
+      "eval_count": 15
+    },
+    {
+      "id": "Q-050",
+      "category": "arithmetic",
+      "question": "How many distinct components of category fastener are used across all procedure steps?",
+      "expected": 7,
+      "expected_mode": "exact",
+      "predicted": "PRC-001\nT-002\nCERT-X\nD-003\nC-004\nTS-005",
+      "correct": false,
+      "score_kind": "exact_mismatch",
+      "score_notes": "pred='PRC-001\\nT-002\\nCERT-X\\nD-003\\nC-004\\nTS-005' exp='7'",
+      "context_chars": 816,
+      "context_tokens": 204,
+      "prompt_chars": 1672,
+      "graph_invocations": [],
+      "vector_uids_kept": [
+        "PRC-004:3",
+        "PRC-011:4",
+        "PRC-010:9",
+        "PRC-011:6",
+        "PRC-011:7"
+      ],
+      "model": "llama3.2:1b",
+      "latency": {
+        "embed_ms": null,
+        "retrieve_vector_ms": null,
+        "retrieve_graph_ms": 11.33003900008589,
+        "format_ms": 0.0031229999422066612,
+        "llm_request_ms": 426.1277330001576,
+        "llm_prompt_eval_ms": 34.8742,
+        "llm_decode_ms": 186.3032,
+        "total_ms": 437.5685249999606
+      },
+      "prompt_eval_count": 394,
+      "eval_count": 24
+    }
+  ]
+}

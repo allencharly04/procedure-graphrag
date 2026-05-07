@@ -68,6 +68,29 @@ LLM-generated answers were incorrect when compared against database results,
 which motivated the "trust the database, not the LLM" methodology now used
 throughout the eval pipeline.
 
+## Phase 4 sweep summary
+
+Seven configurations were tested against the Phase 3 baseline. Two remain on
+the Pareto frontier; five are dominated. Three negative results are documented
+in `REPORT.md`.
+
+| Config | Accuracy | Mean latency |
+|---|---|---|
+| **llama3.1:8b monolithic** (quality-optimal) | **18.8%** | 2053 ms |
+| **llama3.2:1b monolithic** (latency-optimal) | **12.5%** | **484 ms** |
+| llama3.2:3b monolithic | 12.5% | 491 ms |
+| qwen2.5:0.5b monolithic | 12.5% | 670 ms |
+| llama3.1:8b few-shot | 12.5% | 2189 ms |
+| llama3.2:1b few-shot | 8.3% | 842 ms |
+| llama3.1:8b chained | 8.3% | 11478 ms |
+
+Negative results:
+- Naive chained prompts halve accuracy on the 8B model (filter stage discards information)
+- Few-shot examples hurt both 1B and 8B models in retrieval-grounded settings
+- Small models (0.5B-3B) converge to the same 12.5% floor — retrieval-bound, not generation-bound
+
+See `REPORT.md` for full analysis and root causes.
+
 ## Baseline (Phase 3 complete)
 
 The v0 GraphRAG pipeline (vector + graph hybrid retrieval, llama3.1:8b Q4_K_M
@@ -107,7 +130,7 @@ This is an active build. Tracking progress:
 - [x] **Phase 1 — Foundation:** WSL2 environment, Neo4j 5.26 + APOC via Docker, Ollama integration, embeddings smoke tests
 - [x] **Phase 2 — Synthetic domain:** maintenance procedure knowledge graph generation, 48 Cypher-validated ground-truth Q/A pairs
 - [x] **Phase 3 — GraphRAG v0 baseline:** vector + graph retrieval + llama3.1:8b Q4_K_M monolithic prompt
-- [ ] **Phase 4 — Optimization sweep:** model x quant x backend x chain grid (~50 configurations)
+- [x] **Phase 4 — Optimization sweep:** 7 configurations across model size, prompt strategy, and chain design
 - [ ] **Phase 5 — Final pipeline + tests:** Pareto-optimal config wired into Streamlit, pytest latency regression
 - [ ] **Phase 6 — Voice layer (optional):** faster-whisper + Piper for hands-free use
 
